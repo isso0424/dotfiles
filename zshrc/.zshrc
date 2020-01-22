@@ -1,0 +1,1 @@
+/home/isso/.zprezto/runcoms/zshrc

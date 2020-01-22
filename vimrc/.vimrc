@@ -26,7 +26,10 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('luochen1990/rainbow')
 call dein#add('scrooloose/nerdtree')
+call dein#add('scrooloose/syntastic.git')
 call dein#add('Shougo/unite.vim')
+call dein#add('dart-lang/dart-vim-plugin')
+call dein#add('thosakwe/vim-flutter')
 call dein#end()
 if has('vim_starting') && dein#check_install()
   call dein#install()
@@ -85,7 +88,7 @@ set showcmd
 set cursorline
 
 " 現在の行を強調表示（縦）
-set cursorcolumn
+""set cursorcolumn
 
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
@@ -228,3 +231,10 @@ let g:rainbow_active = 1
 
 noremap <C-K> :cd %:h <Enter> :NERDTree <Enter>
 
+""#syntasticを適用
+let g:syntastic_python_checkers = ['pylint']
+
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
