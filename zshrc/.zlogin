@@ -1,1 +1,0 @@
-/home/isso/.zprezto/runcoms/zlogin
