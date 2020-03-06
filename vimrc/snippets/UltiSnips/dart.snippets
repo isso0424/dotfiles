@@ -1,0 +1,16 @@
+snippet build "build function in Widget class"
+Widget build(BuildContext context){
+  return ${1:widget};
+}
+endsnippet
+
+snippet class "Widget class"
+class ${1:ClassName} extends ${2:ParentClass}{
+}
+endsnippet
+
+snippet createState "createState君"
+@override
+${1:StateName} createState() => ${1:StateName}();
+endsnippet
+

@@ -8,30 +8,18 @@ let s:cache_home= expand('~/.cache')
 let s:dein_dir=s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 let &runtimepath = s:dein_repo_dir . "," . &runtimepath
+if dein#load_state(s:dein_dir)
 
-call dein#begin(s:dein_dir)
+    call dein#begin(s:dein_dir)
 " All of your Plugins must be added before the following line
-call dein#add('Shougo/dein.vim')
-call dein#add('itchyny/lightline.vim')
-call dein#add('bronson/vim-trailing-whitespace')
-call dein#add('Yggdroot/indentLine')
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neocomplete')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('nvie/vim-flake8')
-call dein#add('hhatto/autopep8')
-call dein#add('vim-airline/vim-airline')
-call dein#add('airblade/vim-gitgutter')
-call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('luochen1990/rainbow')
-call dein#add('scrooloose/nerdtree')
-call dein#add('scrooloose/syntastic.git')
-call dein#add('Shougo/unite.vim')
-call dein#add('dart-lang/dart-vim-plugin')
-call dein#add('thosakwe/vim-flutter')
-call dein#end()
-if has('vim_starting') && dein#check_install()
+    let s:toml_dir = '~/dotfiles/vimrc/toml'
+    let s:toml     = s:toml_dir . '/dein.toml'
+
+    call dein#load_toml(s:toml, {'lazy': 0})
+    call dein#end()
+    call dein#save_state()
+endif
+if dein#check_install()
   call dein#install()
 endif
 
@@ -58,10 +46,10 @@ set autoindent
 set smartindent
 
 "タブ文字の多さ
-set shiftwidth=4
+set shiftwidth=2
 
 "タブの空白化
-set expandtab
+"set expandtab
 
 "コマンドの補完の有効化
 set wildmenu
@@ -102,6 +90,13 @@ set laststatus=2
 "カラースキームの適用
 colorscheme molokai
 
+set pyxversion=3
+" 背景の透明化
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
+highlight Folded ctermbg=none
+highlight EndOfBuffer ctermbg=none 
 "タブ文字の大きさ指定
 set tabstop=4
 set shiftwidth=4
@@ -124,13 +119,6 @@ nmap ff :NERDTree<CR>
 "###########################################################################################
 "プラグインの設定
 "###########################################################################################
-"ctrlP
-let g:ctrlp_match_window = 'order:ttb,min:20,max:20,results:100' " マッチウインドウの設定. 「下部に表示, 大きさ20行で固定, 検索結果100件」
-let g:ctrlp_show_hidden = 1 " .(ドット)から始まるファイルも検索対象にする
-let g:ctrlp_types = ['fil'] "ファイル検索のみ使用
-let g:ctrlp_extensions = ['funky', 'commandline'] " CtrlPの拡張として「funky」と「commandline」を使用
-let g:ctrl_map = '<Nop>'
-nnoremap <C-P> :CtrlP ~/<CR>
 
 "################
 "#Neocomlete.vim#
@@ -156,12 +144,10 @@ let g:neocomplete#min_keyword_length = 3
 let g:neocomplete#enable_auto_delimiter = 1
 " 1文字目の入力から補完のポップアップを表示
 let g:neocomplete#auto_completion_start_length = 1
-" バックスペースで補完のポップアップを閉じる
-inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
-" エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定・・・・・・②
-imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
-" タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
-imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+
+"################
+" deopleteの設定
+"################
 
 " ###################
 " pythonsyntax
@@ -230,6 +216,7 @@ highlight GitGutterChangeDelete ctermfg=yellow
 let g:rainbow_active = 1
 
 noremap <C-K> :cd %:h <Enter> :NERDTree <Enter>
+
 
 ""#syntasticを適用
 let g:syntastic_python_checkers = ['pylint']

@@ -1,0 +1,99 @@
+# Required:
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# To be 補完が効く世界
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_auto_delimiter = 1
+let g:deoplete#enable_smart_case = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+'''
+depends = ['neco-vim', 'neco-lock', 'neco-syntax']
+
+[[plugins]]
+repo = 'Shougo/neco-vim'
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+
+# snippets関連
+[[plugins]]
+repo = 'SirVer/ultisnips'
+hook_add = '''
+let g:UltiSnipsExpandTrigger="<C-f>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir = '~/dotfiles/vimrc/snippets'
+set runtimepath+=~/dotfiles/vimrc/snippets
+'''
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
+repo = "airblade/vim-gitgutter"
+
+[[plugins]]
+repo = "tpope/vim-fugitive"
+
+[[plugins]]
+repo = 'anned20/vimsence'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'w0rp/ale'
+
+# dart専用
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+on_ft = ['dart']
+
+[[plugins]]
+repo = 'thosakwe/vim-flutter'
+on_ft = ['dart']
+
+# python専用
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'hynek/vim-python-pep8-indent'
+on_ft = ['python']
+
+# tomlのsyantax
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
