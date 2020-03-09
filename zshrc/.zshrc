@@ -242,3 +242,5 @@ autoload -Uz _zinit
 #zplugin light kagamilove0707/moonline.zsh
 #zplugin light yonchu/zsh-python-prompt
 #zplugin light Valodim/zsh-prompt-powerline
+source /home/isso/.nvm/nvm.sh
+nvm use 12.16.1

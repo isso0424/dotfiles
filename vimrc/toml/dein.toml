@@ -11,13 +11,10 @@ let g:deoplete#enable_auto_delimiter = 1
 let g:deoplete#enable_smart_case = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 '''
-depends = ['neco-vim', 'neco-lock', 'neco-syntax']
+depends = ['neco-vim', 'neco-syntax']
 
 [[plugins]]
 repo = 'Shougo/neco-vim'
-
-[[plugins]]
-repo = 'ujihisa/neco-look'
 
 [[plugins]]
 repo = 'Shougo/neco-syntax'
@@ -30,6 +27,7 @@ let g:UltiSnipsExpandTrigger="<C-f>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir = '~/dotfiles/vimrc/snippets'
 set runtimepath+=~/dotfiles/vimrc/snippets
+
 '''
 
 [[plugins]]
@@ -55,6 +53,15 @@ repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
 repo = "airblade/vim-gitgutter"
+hook_add = '''
+set signcolumn=yes
+let g:gitgutter_async = 1
+let g:gitgutter_signmodified = 'rw'
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=yellow
+'''
 
 [[plugins]]
 repo = "tpope/vim-fugitive"
@@ -67,12 +74,40 @@ repo = 'vim-airline/vim-airline'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
+hook_add = '''
+let g:airline_theme = 'dark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'w0rp/ale'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+hook_add = '''
+let g:unite_source_history_yank_enable = 1
+try
+  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+catch
+endtry
+" search a file in the filetree
+nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
+" reset not it is <C-l> normally
+:nnoremap <space>r <Plug>(unite_restart)
+'''
+
+[[plugins]]
+repo = 'simeji/winresizer'
 
 # dart専用
 [[plugins]]
@@ -97,3 +132,23 @@ on_ft = ['python']
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html']
+
+# TypeScript専用
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'tpope/vim-markdown'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.vim'
+on_ft = ['markdown']

@@ -5,8 +5,11 @@ filetype off                  " required
 "dein.vim
 "########
 let s:cache_home= expand('~/.cache')
-let s:dein_dir=s:cache_home . '/dein'
+let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+endif
 let &runtimepath = s:dein_repo_dir . "," . &runtimepath
 if dein#load_state(s:dein_dir)
 
@@ -45,11 +48,13 @@ set autoindent
 "自動インデント
 set smartindent
 
+"タブの空白化
+set expandtab
+
+set tabstop=2
+
 "タブ文字の多さ
 set shiftwidth=2
-
-"タブの空白化
-"set expandtab
 
 "コマンドの補完の有効化
 set wildmenu
@@ -76,7 +81,7 @@ set showcmd
 set cursorline
 
 " 現在の行を強調表示（縦）
-""set cursorcolumn
+set cursorcolumn
 
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
@@ -92,61 +97,29 @@ colorscheme molokai
 
 set pyxversion=3
 " 背景の透明化
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
-highlight Folded ctermbg=none
-highlight EndOfBuffer ctermbg=none 
-"タブ文字の大きさ指定
-set tabstop=4
-set shiftwidth=4
+" highlight Normal ctermbg=none
+" highlight NonText ctermbg=none
+" highlight LineNr ctermbg=none
+" highlight Folded ctermbg=none
+" highlight EndOfBuffer ctermbg=none 
 
 "フォントサイズ
 set guifont=MS_Gothic:h12:cSHIFTJIS
 
 "閉じ括弧補完
-inoremap { {}<LEFT>
-inoremap ( ()<LEFT>
-inoremap [ []<LEFT>
-inoremap < <><LEFT>
-inoremap ' ''<LEFT>
-inoremap " ""<LEFT>
-inoremap {<Enter> {}<LEFT><CR><ESC><S-0>
+" inoremap { {}<LEFT>
+" inoremap ( ()<LEFT>
+" inoremap [ []<LEFT>
+" inoremap < <><LEFT>
+" inoremap ' ''<LEFT>
+" inoremap " ""<LEFT>
+" inoremap {<Enter> {}<LEFT><CR><ESC><S-0>
 "バッファ用
 set hidden
 "NERDTreeを展開
 nmap ff :NERDTree<CR>
 "###########################################################################################
 "プラグインの設定
-"###########################################################################################
-
-"################
-"#Neocomlete.vim#
-"################
-let g:neocomplete#enable_at_startup = 1
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_overwrite_completefunc = 1
-let g:neocomplete#force_omni_input_patterns.c =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-let g:neocomplete#force_omni_input_patterns.cpp =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
-" Vim起動時にneocompleteを有効にする
-let g:neocomplete#enable_at_startup = 1
-" smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplete#enable_smart_case = 1
-" 3文字以上の単語に対して補完を有効にする
-let g:neocomplete#min_keyword_length = 3
-" 区切り文字まで補完する
-let g:neocomplete#enable_auto_delimiter = 1
-" 1文字目の入力から補完のポップアップを表示
-let g:neocomplete#auto_completion_start_length = 1
-
-"################
-" deopleteの設定
 "################
 
 " ###################
@@ -179,36 +152,12 @@ unlet s:cpo_save
 "air-line
 "########
 "basic
-let g:airline_theme = 'dark'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
 ",で次のバッファの表示
 nnoremap <silent> , :bprev<CR>
 ".で前のバッファ表示
 nnoremap <silent> . :bnext<CR>
 "bdで現在のバッファ削除
 nnoremap bd :bd<CR>
-
-"######
-"indent
-"######
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermfg=237
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermfg=240
-
-"#########
-"gitgutter
-"#########
-set signcolumn=yes
-let g:gitgutter_async = 1
-let g:gitgutter_signmodified = 'rw'
-highlight GitGutterAdd ctermfg=green
-highlight GitGutterChange ctermfg=yellow
-highlight GitGutterDelete ctermfg=red
-highlight GitGutterChangeDelete ctermfg=yellow
 
 "#######
 "rainbow
@@ -227,3 +176,4 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 set clipboard=unnamed,autoselect
+inoremap <C-x> <Right> <Esc>
