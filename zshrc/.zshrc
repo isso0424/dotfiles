@@ -244,3 +244,8 @@ autoload -Uz _zinit
 #zplugin light Valodim/zsh-prompt-powerline
 source /home/isso/.nvm/nvm.sh
 nvm use 12.16.1
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=${PATH}:/home/isso/android_sdk/tools:/home/isso/android_sdk/platform-tools:/home/isso/android_sdk/tools/bin
+export ANDROID_HOME=/home/isso/android_sdk
+alias sdkmanager='sdkmanager --sdk_root=${ANDROID_HOME}'
+
