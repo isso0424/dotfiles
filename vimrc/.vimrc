@@ -93,7 +93,8 @@ set showmatch
 set laststatus=2
 
 "カラースキームの適用
-colorscheme molokai
+colorscheme gruvbox
+set background=dark
 
 set pyxversion=3
 " 背景の透明化
