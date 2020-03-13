@@ -92,9 +92,6 @@ set showmatch
 "ステータスラインを常に表示
 set laststatus=2
 
-"カラースキームの適用
-colorscheme gruvbox
-set background=dark
 
 set pyxversion=3
 " 背景の透明化
@@ -104,6 +101,10 @@ set pyxversion=3
 " highlight Folded ctermbg=none
 " highlight EndOfBuffer ctermbg=none 
 
+"カラースキームの適用
+colorscheme gruvbox
+
+set background=dark
 "フォントサイズ
 set guifont=MS_Gothic:h12:cSHIFTJIS
 
