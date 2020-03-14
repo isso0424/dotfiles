@@ -94,6 +94,11 @@ set laststatus=2
 
 
 set pyxversion=3
+"カラースキームの適用
+colorscheme gruvbox
+
+set background=dark
+
 " 背景の透明化
 " highlight Normal ctermbg=none
 " highlight NonText ctermbg=none
@@ -101,10 +106,7 @@ set pyxversion=3
 " highlight Folded ctermbg=none
 " highlight EndOfBuffer ctermbg=none 
 
-"カラースキームの適用
-colorscheme gruvbox
 
-set background=dark
 "フォントサイズ
 set guifont=MS_Gothic:h12:cSHIFTJIS
 
@@ -178,4 +180,5 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 set clipboard=unnamed,autoselect
-inoremap <C-x> <Right> <Esc>
+inoremap <C-x> <Right><Esc>
+

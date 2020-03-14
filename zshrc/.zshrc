@@ -249,3 +249,7 @@ export PATH=${PATH}:/home/isso/android_sdk/tools:/home/isso/android_sdk/platform
 export ANDROID_HOME=/home/isso/android_sdk
 alias sdkmanager='sdkmanager --sdk_root=${ANDROID_HOME}'
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/isso/.sdkman"
+[[ -s "/home/isso/.sdkman/bin/sdkman-init.sh" ]] && source "/home/isso/.sdkman/bin/sdkman-init.sh"

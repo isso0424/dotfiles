@@ -7,7 +7,7 @@ repo = 'Shougo/dein.vim'
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_auto_delimiter = 1
+let g:deoplete#enable_auto_delimiter = 0
 let g:deoplete#enable_smart_case = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 '''
@@ -159,5 +159,15 @@ on_ft = ['markdown']
 
 
 # JavaScript専用
+[[plugins]]
 repo = 'pangloss/vim-javascript'
-on_ft = ['javascript']
+on_ft = ['javascript'] 
+
+# kotlin専用
+[[plugins]]
+repo = 'udalov/kotlin-vim'
+on_ft = ['kotlin']
+
+[[plugins]]
+repo = 'othree/xml.vim'
+on_ft = ['xml']
