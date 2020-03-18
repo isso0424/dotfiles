@@ -253,3 +253,5 @@ alias sdkmanager='sdkmanager --sdk_root=${ANDROID_HOME}'
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/isso/.sdkman"
 [[ -s "/home/isso/.sdkman/bin/sdkman-init.sh" ]] && source "/home/isso/.sdkman/bin/sdkman-init.sh"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
