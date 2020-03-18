@@ -183,5 +183,4 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 set clipboard=unnamed,autoselect
-inoremap <C-x> <Right><Esc>
 
