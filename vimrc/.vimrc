@@ -68,6 +68,9 @@ set nobackup
 " スワップファイルを作らない
 set noswapfile
 
+" 自動改行切る
+set nowrap
+
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
 
@@ -100,11 +103,11 @@ colorscheme gruvbox
 set background=dark
 
 " 背景の透明化
-" highlight Normal ctermbg=none
-" highlight NonText ctermbg=none
-" highlight LineNr ctermbg=none
-" highlight Folded ctermbg=none
-" highlight EndOfBuffer ctermbg=none 
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
+highlight Folded ctermbg=none
+highlight EndOfBuffer ctermbg=none 
 
 
 "フォントサイズ
