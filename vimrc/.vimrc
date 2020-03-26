@@ -1,6 +1,5 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
-
+filetype off                  " required 
 "########
 "dein.vim
 "########
@@ -59,6 +58,9 @@ set shiftwidth=2
 "コマンドの補完の有効化
 set wildmenu
 
+" 検索語をハイライト
+set hlsearch
+
 "コマンドの履歴を1000件保持
 set history=1000
 
@@ -98,7 +100,7 @@ set laststatus=2
 
 set pyxversion=3
 "カラースキームの適用
-colorscheme gruvbox
+colorscheme molokai
 
 set background=dark
 
@@ -124,19 +126,9 @@ set guifont=MS_Gothic:h12:cSHIFTJIS
 "バッファ用
 set hidden
 "NERDTreeを展開
-nmap ff :NERDTree<CR>
 "###########################################################################################
 "プラグインの設定
 "################
-
-" ###################
-" pythonsyntax
-" ###################
-if version < 600
-  syntax clear
-elseif exists('b:current_after_syntax')
-  finish
-endif
 
 " We need nocompatible mode in order to continue lines with backslashes.
 " Original setting will be restored.
@@ -166,16 +158,28 @@ nnoremap <silent> . :bnext<CR>
 "bdで現在のバッファ削除
 nnoremap bd :bd<CR>
 
-"#######
-"rainbow
-"#######
-let g:rainbow_active = 1
+nnoremap s <Nop>
 
-noremap <C-K> :cd %:h <Enter> :NERDTree <Enter>
+" :qのショートカット
+nnoremap sq :q<CR>
 
+" タブ関連
+nnoremap st :tabnew<CR>
+nnoremap se gt
+nnoremap sw gT
 
-""#syntasticを適用
-let g:syntastic_python_checkers = ['pylint']
+" ウィンドウの移動ショートカット
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+
+" ウィンドウの分割
+nnoremap ss :split<CR>
+nnoremap sv :vsplit<CR>
+
+" 検索ハイライト解除
+nnoremap s<Esc> :nohlsearch<CR>
 
 noremap <Up> <Nop>
 noremap <Down> <Nop>

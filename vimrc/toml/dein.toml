@@ -17,6 +17,10 @@ depends = ['neco-vim', 'neco-syntax']
 [[plugins]]
 repo = 'morhetz/gruvbox'
 
+# molokai
+[[plugins]]
+repo = 'tomasr/molokai'
+
 [[plugins]]
 repo = 'Shougo/neco-vim'
 
@@ -39,6 +43,7 @@ repo = 'honza/vim-snippets'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = 'nmap ff :NERDTree<CR>'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -91,6 +96,13 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'w0rp/ale'
+hook_add = '''
+inoremap <Esc> <Esc>:w<Enter>
+'''
+
+[[plugins]]
+repo = 'luochen1990/rainbow'
+hook_add = 'let g:rainbow_active = 1'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -151,6 +163,10 @@ repo = 'Quramy/tsuquyomi'
 on_ft = ['typescript']
 
 [[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+on_ft = ['typescript']
+
+[[plugins]]
 repo = 'tpope/vim-markdown'
 on_ft = ['markdown']
 
@@ -187,9 +203,21 @@ on_ft = ['ruby']
 [[plugins]]
 repo = 'osyo-manga/vim-monster'
 on_i = 1
+on_ft = ['ruby']
 hook_add = '''
 let g:monster#completion#rcodetools#backend = "async_rct_complete"
 let g:deoplete#sources#omni#input_patterns = {
     \ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
       \}
+'''
+
+# HTML/CSS用
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['css', 'html']
+hook_add = '''
+let g:user_emmet_mode = 'iv'
+let g:user_emmet_leader_key = '<C-Y>'
+let g:use_emmet_complete_tag = 1
+
 '''
