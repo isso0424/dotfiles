@@ -255,3 +255,5 @@ export SDKMAN_DIR="/home/isso/.sdkman"
 [[ -s "/home/isso/.sdkman/bin/sdkman-init.sh" ]] && source "/home/isso/.sdkman/bin/sdkman-init.sh"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+alias aptin='pyenv global system && sudo apt install'
+
