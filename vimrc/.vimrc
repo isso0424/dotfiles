@@ -188,3 +188,4 @@ noremap <Right> <Nop>
 
 set clipboard=unnamed,autoselect
 
+let g:ale_linters = {'go' : 'gometalinter'}

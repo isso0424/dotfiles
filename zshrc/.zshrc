@@ -18,6 +18,8 @@ export EDITOR=vim
 
 # パスを追加したい場合
 export PATH="$HOME/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
 
 # cdした際のディレクトリをディレクトリスタックへ自動追加
 setopt auto_pushd
