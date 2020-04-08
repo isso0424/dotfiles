@@ -190,3 +190,4 @@ inoremap jj <ESC>
 
 set clipboard=unnamed,autoselect
 
+let g:ale_linters = {'go' : 'gometalinter'}
