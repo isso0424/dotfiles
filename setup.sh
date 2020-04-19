@@ -8,6 +8,7 @@ ln ~/dotfiles/zshrc/.zsh_history ~/.zsh-history
 ln ~/dotfiles/zshrc/.zhistory ~/.zhistory
 ln ~/dotfiles/zshrc/.zshrc ~/.zshrc
 ln ~/dotfiles/zshrc/.zcompdump.zwc ~/.zcompdump.zwc
+ln ~/dotfiles/zshrc/.zsh_profile ~/.zsh_profile
 
 # vim用設定
 ln ~/dotfiles/vimrc/.vimrc ~/.vimrc
@@ -31,11 +32,11 @@ sudo add-apt-repository ppa:noobslab/macbuntu
 sudo update
 sudo upgrade
 
-sudo apt install vim zsh tmux python3-pip git chromium-browser\
+sudo apt install vim zsh tmux python3-pip git chromium-browser \
 gnome-tweak-tool curl unzip\
--y
+ -y
 
-sudo apt install macbuntu-os-icons-v1804 macbuntu-os-themes-v1804\
+sudo apt install macbuntu-os-icons-v1804 macbuntu-os-ithemes-v1804 \
 macbuntu-os-plank-theme-v1804 -y
 
 # -------------------------------------------------
@@ -73,17 +74,17 @@ chsh -s $(which zsh)
 
 # 壁紙を~/wallpaperに作りまくる
 cd ~/wallpaper
-FILE_ID = "1HXArRiCCkjLYx9AUWE2zJCj67Mi_xBIJ"
-curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${FILE_ID}" > cache
+curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=1HXArRiCCkjLYx9AUWE2zJCj67Mi_xBIJ" > cache
 CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
 curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CODE}&id=${FILE_ID}" -o hibiki.zip
 rm cache
 unzip hibiki.zip
-rm hibiki.zip
 cd
 
 # Node.jsインストール
 touch ~/.bash_profile
+export NVM_DIR="/home/isso/.nvm" >> ~/.bash_profile
+echo [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" . ~/.bash_profile
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 nvm install 12.16.1
 nvm use 12.16.1

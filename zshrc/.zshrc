@@ -17,10 +17,7 @@ export EDITOR=vim
 #setopt IGNOREEOF
 
 # パスを追加したい場合
-export PATH="$HOME/bin:$PATH"
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
-
+export PATH="~/.local/bin/:/home/isso/go/bin:~/bin:$PATH"
 # cdした際のディレクトリをディレクトリスタックへ自動追加
 setopt auto_pushd
 
@@ -208,21 +205,9 @@ setopt hist_verify
 #bindkey "^N" history-beginning-search-forward-end
 
 source ~/.zsh_profile
-$PERCOL="/home/isso/.pyenv/shims/percol"
 
 if [[ ! -n $TMUX ]]; then
-    # get the IDs
-    ID="`tmux list-sessions`"
-    if [[ -z "$ID" ]]; then
-        tmux new-session
-    fi
-    create_new_session="Create New Session"
-    ID="$ID\n${create_new_session}:"
-    ID="`echo $ID | $PERCOL | cut -d: -f1`"
-    if [[ "$ID" = "${create_new_session}" ]]; then
-        tmux new-session
-    fi
-    tmux attach-session -t "$ID"
+  tmux
 fi
 ############
 # zprofile #
@@ -244,8 +229,9 @@ autoload -Uz _zinit
 #zplugin light kagamilove0707/moonline.zsh
 #zplugin light yonchu/zsh-python-prompt
 #zplugin light Valodim/zsh-prompt-powerline
-source /home/isso/.nvm/nvm.sh
+source ~/.nvm/nvm.sh
 nvm use 12.16.1
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=${PATH}:/home/isso/android_sdk/tools:/home/isso/android_sdk/platform-tools:/home/isso/android_sdk/tools/bin
 export ANDROID_HOME=/home/isso/android_sdk
