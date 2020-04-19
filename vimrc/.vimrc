@@ -186,6 +186,11 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+inoremap <silent> <Up> <Nop>
+inoremap <silent> <Down> <Nop>
+inoremap <silent> <Left> <Nop>
+inoremap <silent> <Right> <Nop>
+
 inoremap jj <ESC>:w<CR>
 
 set clipboard=unnamed,autoselect
