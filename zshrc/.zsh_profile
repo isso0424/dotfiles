@@ -1,4 +1,3 @@
-export PASSWORD=hdypqrxnuvgazlsl
 export GOPATH=$HOME/.go
 export PATH=$PATH:$HOME/go/bin:$HOME/.yarn/bin:~/.local/bin/:$PATH
 powerline-daemon -q
@@ -13,4 +12,7 @@ if [ -e $HOME/.pyenv ]; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
-
+if [ -e $HOME/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
