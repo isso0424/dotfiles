@@ -186,7 +186,7 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-inoremap jj <ESC>
+inoremap jj <ESC>:w<CR>
 
 set clipboard=unnamed,autoselect
 
