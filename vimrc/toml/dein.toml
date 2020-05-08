@@ -97,7 +97,7 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
-inoremap <Esc> <Esc>:w<Enter>
+let g:ale_completion_enabled = 0
 '''
 
 [[plugins]]
@@ -227,4 +227,23 @@ repo = 'fatih/vim-go'
 on_ft = ['go']
 hook_add = '''
 let g:go_fmt_command = "goimports"
+'''
+
+# clang用
+[[plugins]]
+repo = 'justmao945/vim-clang'
+on_ft = ['c']
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+
+# 閉じタグ
+[[plugins]]
+repo = 'alvan/vim-closetag'
+on_ft = ['typescript']
+hook_add = '''
+let g:closetag_filenames = "*.tsx"
+let g:closetag_xhtml_filenames = "*.tsx"
+let g:closetag_filetypes = "*.tsx"
+let g:closetag_xhtml_filetypes = "*.tsx"
 '''

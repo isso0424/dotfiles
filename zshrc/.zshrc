@@ -17,7 +17,7 @@ export EDITOR=vim
 #setopt IGNOREEOF
 
 # パスを追加したい場合
-export PATH="~/.local/bin/:/home/isso/go/bin:~/bin:$PATH"
+export PATH=~/.local/bin/:~/bin:$PATH:/usr/local/go/bin
 # cdした際のディレクトリをディレクトリスタックへ自動追加
 setopt auto_pushd
 
