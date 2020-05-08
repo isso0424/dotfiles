@@ -16,8 +16,11 @@ if dein#load_state(s:dein_dir)
 " All of your Plugins must be added before the following line
     let s:toml_dir = '~/dotfiles/vimrc/toml'
     let s:toml     = s:toml_dir . '/dein.toml'
+    let s:lazy     = s:toml_dir . 'lazy.toml'
 
     call dein#load_toml(s:toml, {'lazy': 0})
+    call dein#load_toml(s:lazy, {'lazy': 1})
+
     call dein#end()
     call dein#save_state()
 endif
