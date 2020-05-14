@@ -5,11 +5,19 @@ repo = 'Shougo/dein.vim'
 # To be 補完が効く世界
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+on_i = 1
 hook_add = '''
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_auto_delimiter = 0
 let g:deoplete#enable_smart_case = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+call g:deoplete#custom#option('sources', {
+  \ 'go': ['buffer', 'dictionary', 'file', 'member', 'omni', 'tag']
+  \})
+
+call deoplete#custom#option('omni_patterns', {
+  \ 'go': '[^. *\t]\.\w*',
+  \})
 '''
 depends = ['neco-vim', 'neco-syntax']
 
@@ -20,23 +28,6 @@ repo = 'morhetz/gruvbox'
 # molokai
 [[plugins]]
 repo = 'tomasr/molokai'
-
-[[plugins]]
-repo = 'Shougo/neco-vim'
-
-[[plugins]]
-repo = 'Shougo/neco-syntax'
-
-# snippets関連
-[[plugins]]
-repo = 'SirVer/ultisnips'
-hook_add = '''
-let g:UltiSnipsExpandTrigger="<C-f>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir = '~/dotfiles/vimrc/snippets'
-set runtimepath+=~/dotfiles/vimrc/snippets
-
-'''
 
 [[plugins]]
 repo = 'honza/vim-snippets'
@@ -51,15 +42,6 @@ repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'Townk/vim-autoclose'
 
-[[plugins]]
-repo = 'scrooloose/syntastic'
-on_ft = ['dart']
-
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
 repo = "airblade/vim-gitgutter"
@@ -107,6 +89,7 @@ hook_add = 'let g:rainbow_active = 1'
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
+on_source = ['unite.vim']
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -118,7 +101,7 @@ try
 catch
 endtry
 " search a file in the filetree
-nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
+nnoremap <space><space> :vsplit<cr> :<C-u>Unite -start-insert file_rec/async<cr>
 " reset not it is <C-l> normally
 :nnoremap <space>r <Plug>(unite_restart)
 '''
@@ -126,124 +109,10 @@ nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
 [[plugins]]
 repo = 'simeji/winresizer'
 
-# dart専用
+# deopleteの前提
 [[plugins]]
-repo = 'dart-lang/dart-vim-plugin'
-on_ft = ['dart']
+repo = 'roxma/nvim-yarp'
 
+# deopleteの前提
 [[plugins]]
-repo = 'thosakwe/vim-flutter'
-on_ft = ['dart']
-
-# python専用
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = ['python']
-
-[[plugins]]
-repo = 'hynek/vim-python-pep8-indent'
-on_ft = ['python']
-
-# tomlのsyantax
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = ['toml']
-
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['html', 'javascript.ejs']
-
-# TypeScript専用
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'Quramy/tsuquyomi'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'peitalin/vim-jsx-typescript'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'tpope/vim-markdown'
-on_ft = ['markdown']
-
-[[plugins]]
-repo = 'iamcco/markdown-preview.vim'
-on_ft = ['markdown']
-
-
-# JavaScript専用
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = ['javascript'] 
-
-# kotlin専用
-[[plugins]]
-repo = 'udalov/kotlin-vim'
-on_ft = ['kotlin']
-
-[[plugins]]
-repo = 'othree/xml.vim'
-on_ft = ['xml']
-
-# Rubyの自動補完
-[[plugins]]
-repo = 'Shougo/deoplete-rct'
-on_ft = ['ruby']
-
-# Rubyの自動補完
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-on_ft = ['ruby']
-
-# Rubyの自動補完
-[[plugins]]
-repo = 'osyo-manga/vim-monster'
-on_i = 1
-on_ft = ['ruby']
-hook_add = '''
-let g:monster#completion#rcodetools#backend = "async_rct_complete"
-let g:deoplete#sources#omni#input_patterns = {
-    \ "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-      \}
-'''
-
-# HTML/CSS用
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['css', 'html']
-hook_add = '''
-let g:user_emmet_mode = 'iv'
-let g:user_emmet_leader_key = '<C-Y>'
-let g:use_emmet_complete_tag = 1
-
-'''
-
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
-hook_add = '''
-let g:go_fmt_command = "goimports"
-'''
-
-# clang用
-[[plugins]]
-repo = 'justmao945/vim-clang'
-on_ft = ['c']
-
-[[plugins]]
-repo = 'Shougo/neoinclude.vim'
-
-# 閉じタグ
-[[plugins]]
-repo = 'alvan/vim-closetag'
-on_ft = ['typescript']
-hook_add = '''
-let g:closetag_filenames = "*.tsx"
-let g:closetag_xhtml_filenames = "*.tsx"
-let g:closetag_filetypes = "*.tsx"
-let g:closetag_xhtml_filetypes = "*.tsx"
-'''
+repo = 'roxma/vim-hug-neovim-rpc'
