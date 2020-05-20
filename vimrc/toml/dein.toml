@@ -12,14 +12,20 @@ let g:deoplete#enable_auto_delimiter = 0
 let g:deoplete#enable_smart_case = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 call g:deoplete#custom#option('sources', {
-  \ 'go': ['buffer', 'dictionary', 'file', 'member', 'omni', 'tag']
+  \ 'go': ['buffer', 'dictionary', 'file', 'member', 'omni', 'tag'],
+  \ 'rust': ['buffer', 'dictionary', 'file', 'member', 'omni', 'tag']
   \})
 
 call deoplete#custom#option('omni_patterns', {
   \ 'go': '[^. *\t]\.\w*',
+  \ 'rust': '[^. *\t]\.\w*',
   \})
 '''
-depends = ['neco-vim', 'neco-syntax']
+depends = ['neco-vim']
+
+[[plugins]]
+repo = 'Shougo/neco-vim'
+on_source = ['deoplete.nvim']
 
 # 目に優しいカラースキーム
 [[plugins]]
@@ -116,3 +122,13 @@ repo = 'roxma/nvim-yarp'
 # deopleteの前提
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
+
+# rust用
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+hook_source = '''
+let g:rustfmt_autosave = 1
+let g:rust_doc#define_map_K = 0
+'''
+
