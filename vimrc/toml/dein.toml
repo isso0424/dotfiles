@@ -21,6 +21,10 @@ call deoplete#custom#option('omni_patterns', {
   \ 'rust': '[^. *\t]\.\w*',
   \})
 '''
+hook_post_source = '''
+call deoplete#disable()
+'''
+
 depends = ['neco-vim']
 
 [[plugins]]
@@ -123,3 +127,10 @@ repo = 'roxma/nvim-yarp'
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+
+[[plugins]]
+repo = 'neoclide/coc-rls'
+on_ft = ['rust']
