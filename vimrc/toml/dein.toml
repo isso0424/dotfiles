@@ -2,35 +2,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# To be 補完が効く世界
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1
-hook_add = '''
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_auto_delimiter = 0
-let g:deoplete#enable_smart_case = 1
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-call g:deoplete#custom#option('sources', {
-  \ 'go': ['buffer', 'dictionary', 'file', 'member', 'omni', 'tag'],
-  \ 'rust': ['buffer', 'dictionary', 'file', 'member', 'omni', 'tag']
-  \})
-
-call deoplete#custom#option('omni_patterns', {
-  \ 'go': '[^. *\t]\.\w*',
-  \ 'rust': '[^. *\t]\.\w*',
-  \})
-'''
-hook_post_source = '''
-call deoplete#disable()
-'''
-
-depends = ['neco-vim']
-
-[[plugins]]
-repo = 'Shougo/neco-vim'
-on_source = ['deoplete.nvim']
-
 # 目に優しいカラースキーム
 [[plugins]]
 repo = 'morhetz/gruvbox'

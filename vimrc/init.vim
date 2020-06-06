@@ -207,4 +207,8 @@ let g:ale_go_gometalinter_options = '--fast --disable=gotype'
 let g:ale_fixers = {'typescript': ['prettier']}
 let g:ale_fix_on_save = 1
 
+" 補完時にEnterで改行しない
+inoremap <expr><CR> pumvisible() ? "<C-y>" : "<CR>"
+inoremap <expr><Tab> pumvisible() ? "<C-n>" : "<Tab>"
+
 set clipboard=unnamed,autoselect
