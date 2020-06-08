@@ -155,11 +155,6 @@ unlet s:cpo_save
 "########
 "air-line
 "########
-"basic
-",で次のバッファの表示
-nnoremap <silent> , :bprev<CR>
-".で前のバッファ表示
-nnoremap <silent> . :bnext<CR>
 "bdで現在のバッファ削除
 nnoremap bd :bd<CR>
 
@@ -210,5 +205,3 @@ let g:ale_fix_on_save = 1
 " 補完時にEnterで改行しない
 inoremap <expr><CR> pumvisible() ? "<C-y>" : "<CR>"
 inoremap <expr><Tab> pumvisible() ? "<C-n>" : "<Tab>"
-
-set clipboard=unnamed,autoselect
