@@ -100,13 +100,6 @@ let g:use_emmet_complete_tag = 1
 
 '''
 
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
-hook_add = '''
-let g:go_fmt_command = "goimports"
-'''
-
 # clang用
 [[plugins]]
 repo = 'justmao945/vim-clang'
