@@ -1,5 +1,5 @@
 export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/.yarn/bin:~/.local/bin/:/usr/local/bin
+export PATH=$PATH:$HOME/.yarn/bin:~/.local/bin/:/usr/local/bin:$HOME/tool/:$GOPATH/bin
 powerline-daemon -q
 if [ -e $HOME/.local/lib/python3.8 ]; then
   . ~/.local/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
