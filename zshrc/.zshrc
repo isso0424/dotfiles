@@ -248,3 +248,6 @@ if [ -e $HOME/.sdkman ]; then
   export SDKMAN_DIR="/home/isso/.sdkman"
   [[ -s "/home/isso/.sdkman/bin/sdkman-init.sh" ]] && source "/home/isso/.sdkman/bin/sdkman-init.sh"
 fi
+
+alias report="source report"
+alias start="source start"
