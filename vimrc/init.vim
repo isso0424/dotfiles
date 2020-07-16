@@ -163,6 +163,9 @@ nnoremap s <Nop>
 " :qのショートカット
 nnoremap sq :q<CR>
 
+" 全バッファ&全タブリロード
+nnoremap sr :bufdo e!<CR>:tabdo e!<CR>
+
 " タブ関連
 nnoremap st :tabnew<CR>
 nnoremap se gt
