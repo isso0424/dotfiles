@@ -198,12 +198,8 @@ inoremap jj <ESC>:w<CR>
 
 nnoremap si 0I//
 
-let g:ale_linters = {'go' : ['gometalinter', 'gofmt'], 'typescript' : ['prettier']}
-
-let g:ale_go_gometalinter_options = '--fast --disable=gotype'
-
-let g:ale_fixers = {'typescript': ['prettier']}
-let g:ale_fix_on_save = 1
+" golangの設定
+autocmd BufRead,BufNewFile *.go setlocal noexpandtab
 
 " 補完時にEnterで改行しない
 inoremap <expr><CR> pumvisible() ? "<C-y>" : "<CR>"
