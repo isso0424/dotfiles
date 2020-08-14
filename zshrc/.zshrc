@@ -10,6 +10,8 @@
 # 色を使用
 autoload -Uz colors ; colors
 
+source $HOME/dotfiles/zshrc/.zsh_style
+
 # エディタをvimに設定
 export EDITOR=vim
 
