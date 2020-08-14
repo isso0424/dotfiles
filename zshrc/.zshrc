@@ -208,9 +208,6 @@ setopt hist_verify
 
 source ~/.zsh_profile
 
-if [[ ! -n $TMUX ]]; then
-  tmux
-fi
 ############
 # zprofile #
 ############
