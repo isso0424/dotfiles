@@ -48,7 +48,7 @@ function zle-line-init zle-keymap-select {
             SYMBOL_CHARACTER="==■"
         ;;
   esac
-    local MODE=" $SEPARATOR %F{239}MODE%f/$VIM_MODE"
+    local MODE=" $SEPARATOR %F{070}MODE%f/$VIM_MODE"
     
     # 前回のコマンドの結果に基づいて色を変える。
     local SYMBOL="%B%(?:%F{150}:%F{red})$SYMBOL_CHARACTER%b%{$reset_color%}"
