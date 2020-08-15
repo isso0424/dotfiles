@@ -250,3 +250,9 @@ fi
 
 alias report="source report"
 alias start="source start"
+
+if [ -e $HOME/dotfiles/zshrc/.zsh_depend_pc ]; then
+  source $HOME/dotfiles/zshrc/.zsh_depend_pc
+else
+  touch $HOME/dotfiles/zshrc/.zsh_depend_pc
+fi
