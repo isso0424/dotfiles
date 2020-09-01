@@ -100,7 +100,6 @@ set showmatch
 "ステータスラインを常に表示
 set laststatus=2
 
-
 "カラースキームの適用
 colorscheme gruvbox
 
@@ -152,9 +151,6 @@ let b:current_after_syntax = 'python'
 let &cpo = s:cpo_save
 unlet s:cpo_save
 
-"########
-"air-line
-"########
 "bdで現在のバッファ削除
 nnoremap bd :bd<CR>
 
@@ -184,10 +180,10 @@ nnoremap sv :vsplit<CR>
 " 検索ハイライト解除
 nnoremap s<Esc> :nohlsearch<CR>
 
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+noremap <silent> <Up> <Nop>
+noremap <silent> <Down> <Nop>
+noremap <silent> <Left> <Nop>
+noremap <silent> <Right> <Nop>
 
 inoremap <silent> <Up> <Nop>
 inoremap <silent> <Down> <Nop>
