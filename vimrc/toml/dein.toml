@@ -234,14 +234,6 @@ nnoremap <space><space> :vsplit<cr> :<C-u>Unite -start-insert file_rec/async<cr>
 [[plugins]]
 repo = 'simeji/winresizer'
 
-# deopleteの前提
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-
-# deopleteの前提
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
