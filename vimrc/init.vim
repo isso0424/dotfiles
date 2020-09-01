@@ -186,6 +186,9 @@ inoremap jj <ESC>:w<CR>
 
 nnoremap si 0I//
 
+" MarkdownPreview
+noremap sm :MarkdownPreview<CR>
+
 " golangの設定
 autocmd BufRead,BufNewFile *.go setlocal noexpandtab
 
