@@ -108,6 +108,13 @@ set background=dark
 "一部文字がバグるのを修正
 set ambiwidth=double
 
+" 背景の透明化
+"highlight Normal ctermbg=none
+"highlight NonText ctermbg=none
+"highlight LineNr ctermbg=none
+"highlight Folded ctermbg=none
+"highlight EndOfBuffer ctermbg=none 
+
 "フォントサイズ
 set guifont=MS_Gothic:h12:cSHIFTJIS
 
