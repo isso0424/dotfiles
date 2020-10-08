@@ -241,6 +241,11 @@ if [ -e $HOME/android_sdk ]; then
   alias sdkmanager='sdkmanager --sdk_root=${ANDROID_HOME}'
 fi
 
+if [ -e $(which tmux) ]; then
+  if [ -v $TMUX ]; then
+    tmux
+  fi
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 if [ -e $HOME/.sdkman ]; then
