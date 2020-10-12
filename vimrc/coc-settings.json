@@ -1,0 +1,17 @@
+{
+  "suggest.noselect": false,
+  "suggest.preferCompleteThanJumpPlaceholder": true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".git/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "lintTool": "golint"
+      }
+    }
+  },
+  "go.disable": {
+    "workspaceFolders": false
+  }
+}
