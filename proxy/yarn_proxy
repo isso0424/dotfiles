@@ -1,3 +1,4 @@
+#!/bin/sh
 if [ $1 = "unset" ]; then
   yarn config delete proxy
   yarn config delete https-proxy

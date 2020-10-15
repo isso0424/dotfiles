@@ -1,3 +1,4 @@
+#!/bin/sh
 output=$(git config --global http.proxy)
 if [ $? -ne 0 ]; then
   git config --global http.proxy http://po.cc.ibaraki-ct.ac.jp:3128

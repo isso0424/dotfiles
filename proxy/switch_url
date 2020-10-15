@@ -1,3 +1,4 @@
+#!/bin/sh
 trush=(`git remote -v | grep origin | grep -o "http"`)
 
 if [ $? = 1 ]; then
