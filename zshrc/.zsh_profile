@@ -1,5 +1,5 @@
 export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/.yarn/bin:~/.local/bin/:/usr/local/bin:$HOME/tool/:$GOPATH/bin
+export PATH=$PATH:$HOME/.yarn/bin:~/.local/bin/:/usr/local/bin:$HOME/tool/:$GOPATH/bin:$HOME/dotfiles/proxy:$HOME/dotfiles/commands
 if [ -e $HOME/.pyenv ]; then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
