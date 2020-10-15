@@ -1,2 +1,7 @@
+if [ $1 = "unset" ]; then
+  yarn config delete proxy
+  yarn config delete https-proxy
+  exit 0
+fi
 yarn config set proxy http://po.cc.ibaraki-ct.ac.jp:3128
 yarn config set https-proxy http://po.cc.ibaraki-ct.ac.jp:3128
