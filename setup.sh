@@ -1,93 +1,13 @@
-#!/bin/bash
-cd
-
-# シンボリックリンク
-# -------------------------------------------------
-# zsh用設定
-ln ~/dotfiles/zshrc/.zsh_history ~/.zsh-history
-ln ~/dotfiles/zshrc/.zhistory ~/.zhistory
-ln ~/dotfiles/zshrc/.zshrc ~/.zshrc
-ln ~/dotfiles/zshrc/.zcompdump.zwc ~/.zcompdump.zwc
-ln ~/dotfiles/zshrc/.zsh_profile ~/.zsh_profile
-
-# vim用設定
-ln ~/dotfiles/vimrc/.vimrc ~/.vimrc
-
-if [ ! -d ~/.cache ]; then
-  mkdir ~/.cache
+if [ -d ~/.config/nvim ]; then
+  mkdir -p ~/.config/nvim
 fi
-if [ ! -d ~/.fonts ]; then
-  mkdir ~/.fonts
-fi
-if [ ! -d ~/wallpaper ]; then
-  mkdir ~/wallpaper
-fi
-# tmux用設定
-ln ~/dotfiles/tmuxconf/.tmux.conf ~/.tmux.conf
-# -------------------------------------------------
-# コマンドインスコ
-# -------------------------------------------------
-sudo add-apt-repository ppa:noobslab/macbuntu
 
-sudo update
-sudo upgrade
+ln -f ~/dotfiles/zshrc/.zshrc ~/.zshrc
+ln -f ~/dotfiles/zshrc/.zsh_profile ~/.zsh_profile
+ln -f ~/dotfiles/vimrc/init.vim ~/.config/nvim/init.vim
+ln -f ~/dotfiles/vimrc/coc-settings.json ~/.config/nvim/coc-settings.json
+ln -f ~/dotfiles/tmuxconf/.tmux.conf ~/.tmux.conf
+ln -f ~/dotfiles/.xprofile ~/.xprofile
 
-sudo apt install vim zsh tmux python3-pip git chromium-browser \
-gnome-tweak-tool curl unzip\
- -y
+sudo chmod 777 ~/dotfiles/proxy/* ~/dotfiles/commands/*
 
-sudo apt install macbuntu-os-icons-v1804 macbuntu-os-ithemes-v1804 \
-macbuntu-os-plank-theme-v1804 -y
-
-# -------------------------------------------------
-# ゴミ箱
-# -------------------------------------------------
-gsettings set org.gnome.nautilus.desktop trash-icon-visible false
-
-# -------------------------------------------------
-# python3のモジュールインスコ
-# -------------------------------------------------
-pip3 install pynvim neovim
-
-pip3 install --user powerline-status
-
-#--------------------------------------------------
-# pyenv
-#--------------------------------------------------
-git clone git://github.com/yyuu/pyenv.git ~/.pyenv
-git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-
-# -------------------------------------------------
-# powerline
-# -------------------------------------------------
-git clone https://github.com/mzyy94/RictyDiminished-for-Powerline.git
-sudo cp -r ~/RictyDiminished-for-Powerline /usr/share/fonts/truetype
-fc-cache -vf
-cp -r ~/RictyDiminished-for-Powerline ~/.fonts
-fc-cache -vf ~/.fonts/
-
-# dockを非表示に
-gsettings set org.gnome.shell.extensions.dash-to-dock autohide false && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide false
-
-# zshをデフォルトコンソールに
-chsh -s $(which zsh)
-
-# 壁紙を~/wallpaperに作りまくる
-cd ~/wallpaper
-curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=1HXArRiCCkjLYx9AUWE2zJCj67Mi_xBIJ" > cache
-CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
-curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CODE}&id=${FILE_ID}" -o hibiki.zip
-rm cache
-unzip hibiki.zip
-cd
-
-# Node.jsインストール
-touch ~/.bash_profile
-export NVM_DIR="/home/isso/.nvm" >> ~/.bash_profile
-echo [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" . ~/.bash_profile
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-nvm install 12.16.1
-nvm use 12.16.1
-npm install -G yarn
-
-echo Please restart terminal
