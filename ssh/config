@@ -1,0 +1,11 @@
+Host github.com
+  User git
+  HostName github.com
+  IdentityFile ~/.ssh/id_rsa
+
+Host ssh.github.com
+  User git
+  HostName ssh.github.com
+  Port 443
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand corkscrew po.cc.ibaraki-ct.ac.jp 3128 ssh.github.com 443
