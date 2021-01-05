@@ -154,7 +154,3 @@ source ~/dotfiles/vimrc/shortcuts/general.vim
 
 " golangの設定
 autocmd BufRead,BufNewFile *.go setlocal noexpandtab
-
-" 補完時にEnterで改行しない
-inoremap <expr><CR> pumvisible() ? "<C-y>" : "<CR>"
-inoremap <expr><Tab> pumvisible() ? "<C-n>" : "<Tab>"
