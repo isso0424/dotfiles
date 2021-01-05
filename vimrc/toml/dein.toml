@@ -16,88 +16,7 @@ repo = 'honza/vim-snippets'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
-autocmd FileType defx call s:defx_my_settings()
-
-function! s:defx_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-   \ defx#do_action('drop')
-  nnoremap <silent><buffer><expr> c
-  \ defx#do_action('copy')
-  nnoremap <silent><buffer><expr> m
-  \ defx#do_action('move')
-  nnoremap <silent><buffer><expr> p
-  \ defx#do_action('paste')
-  nnoremap <silent><buffer><expr> l
-  \ defx#do_action('drop')
-  nnoremap <silent><buffer><expr> t
-  \ defx#do_action('open','tabnew')
-  nnoremap <silent><buffer><expr> E
-  \ defx#do_action('drop', 'vsplit')
-  nnoremap <silent><buffer><expr> P
-  \ defx#do_action('drop', 'pedit')
-  nnoremap <silent><buffer><expr> o
-  \ defx#do_action('open_or_close_tree')
-  nnoremap <silent><buffer><expr> K
-  \ defx#do_action('new_directory')
-  nnoremap <silent><buffer><expr> N
-  \ defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> M
-  \ defx#do_action('new_multiple_files')
-  nnoremap <silent><buffer><expr> C
-  \ defx#do_action('toggle_columns',
-  \                'mark:indent:icon:filename:type:size:time')
-  nnoremap <silent><buffer><expr> S
-  \ defx#do_action('toggle_sort', 'time')
-  nnoremap <silent><buffer><expr> d
-  \ defx#do_action('remove')
-  nnoremap <silent><buffer><expr> r
-  \ defx#do_action('rename')
-  nnoremap <silent><buffer><expr> !
-  \ defx#do_action('execute_command')
-  nnoremap <silent><buffer><expr> x
-  \ defx#do_action('execute_system')
-  nnoremap <silent><buffer><expr> yy
-  \ defx#do_action('yank_path')
-  nnoremap <silent><buffer><expr> .
-  \ defx#do_action('toggle_ignored_files')
-  nnoremap <silent><buffer><expr> ;
-  \ defx#do_action('repeat')
-  nnoremap <silent><buffer><expr> ..
-  \ defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> ~
-  \ defx#do_action('cd')
-  nnoremap <silent><buffer><expr> q
-  \ defx#do_action('quit')
-  nnoremap <silent><buffer><expr> <Space>
-  \ defx#do_action('toggle_select') . 'j'
-  nnoremap <silent><buffer><expr> *
-  \ defx#do_action('toggle_select_all')
-  nnoremap <silent><buffer><expr> j
-  \ line('.') == line('$') ? 'gg' : 'j'
-  nnoremap <silent><buffer><expr> k
-  \ line('.') == 1 ? 'G' : 'k'
-  nnoremap <silent><buffer><expr> <C-l>
-  \ defx#do_action('redraw')
-  nnoremap <silent><buffer><expr> <C-g>
-  \ defx#do_action('print')
-  nnoremap <silent><buffer><expr> cd
-  \ defx#do_action('change_vim_cwd')
-endfunction
-
-nnoremap <silent> ff :<C-u> Defx <CR>
-autocmd BufWritePost * call defx#redraw()
-autocmd BufEnter * call defx#redraw()
-call defx#custom#option('_', {
-      \ 'winwidth': 40,
-      \ 'split': 'vertical',
-      \ 'direction': 'topleft',
-      \ 'show_ignored_files': 1,
-      \ 'buffer_name': 'exlorer',
-      \ 'toggle': 1,
-      \ 'resume': 1,
-      \ 'columns': 'indent:git:filename:mark',
-      \ })
-
+source ~/dotfiles/vimrc/plugins/defx.vim
 '''
 
 [[plugins]]
@@ -106,59 +25,7 @@ repo = 'kristijanhusak/defx-git'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-" 【Ctrl + d + a】 カレントディレクトリとバッファを表示
-nnoremap <silent><C-d>a :<C-u>Denite file buffer -split=floating file:new<CR>
-" 【Ctrl + d + b】 バッファを表示
-nnoremap <silent><C-d>b :<C-u>Denite buffer -split=floating file:new<CR>
-" 【Ctrl + d + f】 カレントディレクトリを表示
-nnoremap <silent><C-d>f :<C-u>Denite file -split=floating file:new<CR>
-" 【Ctrl + d + r】 カレントディレクトリ以下を再帰的に表示
-nnoremap <silent><C-d>r :<C-u>Denite file/rec -split=floating file:new<CR>
-" 【Ctrl + d + gr】 カレントディレクトリ以下のファイルから指定した文字列を検索
-nnoremap <silent><C-d>gr :<C-u>Denite grep -buffer-name=search<CR>
-" 【Ctrl + d + ,】 カレントディレクトリ以下のファイルからカーソル下の文字列を検索
-nnoremap <silent><C-d>, :<C-u>DeniteCursorWord grep -buffer-name=search line<CR>
-" 【Ctrl + d + gs】 grepした結果を再表示
-nnoremap <silent><C-d>gs :<C-u>Denite -resume -buffer-name=search<CR>
-" 【Ctrl + d + c】 Neovim内で実行したコマンドを表示
-nnoremap <silent><C-d>c :<C-u>Denite command_history -split=floating<CR>
-
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  " 【o】 ファイルを開く
-  nnoremap <silent><buffer><expr> o
-  \ denite#do_map('do_action')
-  " 【s】 ウィンドウを水平分割してファイルを開く
-  nnoremap <silent><buffer><expr> s
-  \ denite#do_map('do_action', 'split')
-  " 【v】 ウィンドウを垂直分割してファイルを開く
-  nnoremap <silent><buffer><expr> v
-  \ denite#do_map('do_action', 'vsplit')
-  " 【d】 ファイルを削除する
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  " 【p】 ファイルをプレビュー画面で開く
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  " 【ESC】 / 【q】 denite.nvimを終了する
-  nnoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  " 【i】 ファイル名で検索する
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  " 【SPACE】 ファイルを複数選択する
-  nnoremap <silent><buffer><expr> <Space>
-  \ denite#do_map('toggle_select').'j'
-endfunction
-
-autocmd FileType denite-filter call s:denite_filter_my_settings()
-function! s:denite_filter_my_settings() abort
-  imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
-endfunction
+source ~/dotfiles/vimrc/plugins/denite.vim
 '''
 
 [[plugins]]
@@ -171,13 +38,7 @@ repo = 'Townk/vim-autoclose'
 [[plugins]]
 repo = "airblade/vim-gitgutter"
 hook_add = '''
-set signcolumn=yes
-let g:gitgutter_async = 1
-let g:gitgutter_signmodified = 'rw'
-highlight GitGutterAdd ctermfg=green
-highlight GitGutterChange ctermfg=yellow
-highlight GitGutterDelete ctermfg=red
-highlight GitGutterChangeDelete ctermfg=yellow
+source ~/dotfiles/vimrc/plugins/vim-gitgutter.vim
 '''
 
 [[plugins]]
@@ -192,10 +53,7 @@ repo = 'vim-airline/vim-airline'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
-let g:airline_theme = 'dark'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
+source ~/dotfiles/vimrc/plugins/airline-theme.vim
 '''
 
 [[plugins]]
@@ -219,16 +77,7 @@ on_source = ['unite.vim']
 [[plugins]]
 repo = 'Shougo/unite.vim'
 hook_add = '''
-let g:unite_source_history_yank_enable = 1
-try
-  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-catch
-endtry
-" search a file in the filetree
-nnoremap <space><space> :vsplit<cr> :<C-u>Unite -start-insert file_rec/async<cr>
-" reset not it is <C-l> normally
-:nnoremap <space>r <Plug>(unite_restart)
+source ~/dotfiles/vimrc/plugins/unite.vim
 '''
 
 [[plugins]]
@@ -238,20 +87,7 @@ repo = 'simeji/winresizer'
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 hook_add = '''
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+source ~/dotfiles/vimrc/plugins/coc.vim
 '''
 
 [[plugins]]
