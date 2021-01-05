@@ -12,14 +12,9 @@ autoload -Uz colors ; colors
 
 source $HOME/dotfiles/zshrc/.zsh_style
 
-# エディタをvimに設定
-export EDITOR=vim
-
 # Ctrl+Dでログアウトしてしまうことを防ぐ
 #setopt IGNOREEOF
 
-# パスを追加したい場合
-export PATH=~/.local/bin/:~/bin:$PATH:/usr/local/go/bin
 # cdした際のディレクトリをディレクトリスタックへ自動追加
 setopt auto_pushd
 
@@ -192,20 +187,6 @@ setopt inc_append_history
 # ヒストリを呼び出してから実行する間に一旦編集できる状態になる
 setopt hist_verify
 
-#余分なスペースを削除してヒストリに記録する
-#setopt hist_reduce_blanks
-
-# historyコマンドは残さない
-#setopt hist_save_no_dups
-
-# ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
-#bindkey '^R' history-incremental-pattern-search-backward
-#bindkey "^S" history-incremental-search-forward
-
-# ^P,^Nを検索へ割り当て
-#bindkey "^P" history-beginning-search-backward-end
-#bindkey "^N" history-beginning-search-forward-end
-
 source ~/.zsh_profile
 
 ############
@@ -224,25 +205,6 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit installer's chunk
 
-#zplugin light nojhan/liquidprompt
-#zplugin light kagamilove0707/moonline.zsh
-#zplugin light yonchu/zsh-python-prompt
-#zplugin light Valodim/zsh-prompt-powerline
-if [ -e $HOME/.nvm ]; then
-  source ~/.nvm/nvm.sh
-  nvm use 14.15.3
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-source /usr/share/nvm/init-nvm.sh
-
-if [ -e $HOME/android_sdk ]; then
-  export PATH=${PATH}:/home/isso/android_sdk/tools:/home/isso/android_sdk/platform-tools:/home/isso/android_sdk/tools/bin
-  export ANDROID_HOME=/home/isso/android_sdk
-  alias sdkmanager='sdkmanager --sdk_root=${ANDROID_HOME}'
-fi
 
 if [ -e $(which tmux) ]; then
   if [ -v $TMUX ]; then
@@ -258,11 +220,5 @@ fi
 
 alias report="source report"
 alias start="source start"
-
-if [ -e $HOME/dotfiles/zshrc/.zsh_depend_pc ]; then
-  source $HOME/dotfiles/zshrc/.zsh_depend_pc
-else
-  touch $HOME/dotfiles/zshrc/.zsh_depend_pc
-fi
 
 export EDITOR="nvim"

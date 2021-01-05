@@ -1,5 +1,5 @@
 export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/.yarn/bin:~/.local/bin/:/usr/local/bin:$HOME/tool/:$GOPATH/bin:$HOME/dotfiles/proxy:$HOME/dotfiles/commands
+export PATH=$PATH:$HOME/.yarn/bin:~/.local/bin/:/usr/local/bin:$HOME/tool/:$GOPATH/bin:$HOME/dotfiles/proxy:$HOME/dotfiles/commands:/usr/local/go/bin
 if [ -e $HOME/.pyenv ]; then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
@@ -13,6 +13,17 @@ fi
 if [ -e $(which thefuck) ]; then
   eval $(thefuck --alias f)
 fi
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+source /usr/share/nvm/init-nvm.sh
+
+if [ -e $HOME/android_sdk ]; then
+  export PATH=${PATH}:/home/isso/android_sdk/tools:/home/isso/android_sdk/platform-tools:/home/isso/android_sdk/tools/bin
+  export ANDROID_HOME=/home/isso/android_sdk
+  alias sdkmanager='sdkmanager --sdk_root=${ANDROID_HOME}'
+fi
+
 export XIM_PROGRAM=fcitx
 export XIM=fcitx
 export GTK_IM_MODULE=fcitx
