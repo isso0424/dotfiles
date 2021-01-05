@@ -264,3 +264,5 @@ if [ -e $HOME/dotfiles/zshrc/.zsh_depend_pc ]; then
 else
   touch $HOME/dotfiles/zshrc/.zsh_depend_pc
 fi
+
+export EDITOR="nvim"
