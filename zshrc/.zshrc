@@ -212,6 +212,10 @@ if [ -e $(which tmux) ]; then
   fi
 fi
 
+if [ -e $(which thefuck) ]; then
+  eval $(thefuck --alias f)
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 if [ -e $HOME/.sdkman ]; then
   export SDKMAN_DIR="/home/isso/.sdkman"
@@ -222,3 +226,5 @@ alias report="source report"
 alias start="source start"
 
 export EDITOR="nvim"
+
+eval $(thefuck --alias)
