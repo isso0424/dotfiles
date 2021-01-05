@@ -63,5 +63,6 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> cd
   \ defx#do_action('change_vim_cwd')
 endfunction
+autocmd FileType defx call s:defx_my_settings()
 
 nnoremap <silent> ff :<C-u> Defx <CR>

@@ -1,4 +1,3 @@
-autocmd FileType defx call s:defx_my_settings()
 
 autocmd BufWritePost * call defx#redraw()
 autocmd BufEnter * call defx#redraw()
@@ -13,4 +12,4 @@ call defx#custom#option('_', {
       \ 'columns': 'indent:git:filename:mark',
       \ })
 
-source ~/dotfiles/vimrc/plugins/defx.vim
+source ~/dotfiles/vimrc/shortcuts/defx.vim
