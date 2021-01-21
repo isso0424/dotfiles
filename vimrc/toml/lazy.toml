@@ -22,11 +22,11 @@ on_ft = ['html', 'javascript.ejs']
 # TypeScript専用
 [[plugins]]
 repo = 'peitalin/vim-jsx-typescript'
-on_ft = ['typescript']
+on_ft = ['typescript', 'typescriptreact']
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
+on_ft = ['typescript', 'typescriptreact']
 
 [[plugins]]
 repo = 'tpope/vim-markdown'
