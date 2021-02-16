@@ -108,6 +108,8 @@ set background=dark
 "一部文字がバグるのを修正
 set ambiwidth=double
 
+set completeopt=menuone,noinsert
+
 " 背景の透明化
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
