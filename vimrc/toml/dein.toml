@@ -39,9 +39,6 @@ source ~/dotfiles/vimrc/plugins/vim-gitgutter.vim
 repo = "tpope/vim-fugitive"
 
 [[plugins]]
-repo = 'anned20/vimsence'
-
-[[plugins]]
 repo = 'vim-airline/vim-airline'
 
 [[plugins]]
@@ -49,9 +46,6 @@ repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
 source ~/dotfiles/vimrc/plugins/airline-theme.vim
 '''
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'w0rp/ale'
@@ -64,17 +58,6 @@ repo = 'luochen1990/rainbow'
 hook_add = 'let g:rainbow_active = 1'
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-on_source = ['unite.vim']
-
-[[plugins]]
-repo = 'Shougo/unite.vim'
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/unite.vim
-'''
-
-[[plugins]]
 repo = 'simeji/winresizer'
 
 [[plugins]]
@@ -83,10 +66,6 @@ rev = 'release'
 hook_add = '''
 source ~/dotfiles/vimrc/plugins/coc.vim
 '''
-
-[[plugins]]
-repo = 'neoclide/coc-rls'
-on_ft = ['rust']
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'

@@ -5,19 +5,10 @@ hook_add = '''
 source ~/dotfiles/vimrc/plugins/ultisnip.vim
 '''
 
-# python専用
-[[plugins]]
-repo = 'hynek/vim-python-pep8-indent'
-on_ft = ['python']
-
 # tomlのsyantax
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
-
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['html', 'javascript.ejs']
 
 # TypeScript専用
 [[plugins]]
@@ -43,7 +34,7 @@ on_ft = ['xml']
 # HTML/CSS用
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['css', 'html']
+on_ft = ['css', 'html', 'javascript.ejs']
 hook_add = '''
 source ~/dotfiles/vimrc/plugins/emmet.vim
 '''
