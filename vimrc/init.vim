@@ -17,9 +17,11 @@ if dein#load_state(s:dein_dir)
     let s:toml_dir = expand('~/dotfiles/vimrc/toml')
     let s:toml     = '~/dotfiles/vimrc/toml/dein.toml'
     let s:lazy     = '~/dotfiles/vimrc/toml/lazy.toml'
+    let s:language = '~/dotfiles/vimrc/toml/language.toml'
 
     call dein#load_toml(s:toml, {'lazy': 0})
     call dein#load_toml(s:lazy, {'lazy': 1})
+    call dein#load_toml(s:language, {'lazy': 2})
 
     call dein#end()
     call dein#save_state()

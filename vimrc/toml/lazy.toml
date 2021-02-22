@@ -5,78 +5,33 @@ hook_add = '''
 source ~/dotfiles/vimrc/plugins/ultisnip.vim
 '''
 
-# tomlのsyantax
 [[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = ['toml']
-
-# TypeScript専用
-[[plugins]]
-repo = 'peitalin/vim-jsx-typescript'
-on_ft = ['typescript', 'typescriptreact']
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript', 'typescriptreact']
-
-[[plugins]]
-repo = 'tpope/vim-markdown'
-on_ft = ['markdown']
-
-[[plugins]]
-repo = 'iamcco/markdown-preview.vim'
-on_ft = ['markdown']
-
-[[plugins]]
-repo = 'othree/xml.vim'
-on_ft = ['xml']
-
-# HTML/CSS用
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['css', 'html', 'javascript.ejs']
+repo = 'neoclide/coc.nvim'
+rev = 'release'
 hook_add = '''
-source ~/dotfiles/vimrc/plugins/emmet.vim
+source ~/dotfiles/vimrc/plugins/coc.vim
 '''
 
-# clang用
 [[plugins]]
-repo = 'justmao945/vim-clang'
-on_ft = ['c']
-
-[[plugins]]
-repo = 'Shougo/neoinclude.vim'
-on_ft = ['c']
-
-# 閉じタグ
-[[plugins]]
-repo = 'alvan/vim-closetag'
-on_ft = ['typescript']
+repo = 'Shougo/denite.nvim'
 hook_add = '''
-source ~/dotfiles/vimrc/plugins/vim-closetag.vim
-'''
-
-# rust用
-[[plugins]]
-repo = 'rust-lang/rust.vim'
-on_ft = 'rust'
-hook_source = '''
-let g:rustfmt_autosave = 1
-let g:rust_doc#define_map_K = 0
+source ~/dotfiles/vimrc/plugins/denite.vim
 '''
 
 [[plugins]]
-repo = 'dart-lang/dart-vim-plugin'
-on_ft = 'dart'
+repo = 'simeji/winresizer'
 
 [[plugins]]
-repo = 'thosakwe/vim-flutter'
-on_ft = 'dart'
+repo = 'w0rp/ale'
+hook_add = '''
+let g:ale_completion_enabled = 0
+'''
 
 [[plugins]]
-repo = 'jparise/vim-graphql'
-on_ft = ['graphql']
+repo = 'Shougo/defx.nvim'
+hook_add = '''
+source ~/dotfiles/vimrc/plugins/defx.vim
+'''
 
 [[plugins]]
-repo = 'pantharshit00/vim-prisma'
-on_ft = ['prisma']
+repo = 'kristijanhusak/defx-git'
