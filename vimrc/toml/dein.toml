@@ -23,12 +23,6 @@ source ~/dotfiles/vimrc/plugins/defx.vim
 repo = 'kristijanhusak/defx-git'
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/denite.vim
-'''
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
@@ -93,3 +87,9 @@ source ~/dotfiles/vimrc/plugins/coc.vim
 [[plugins]]
 repo = 'neoclide/coc-rls'
 on_ft = ['rust']
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+source ~/dotfiles/vimrc/plugins/denite.vim
+'''

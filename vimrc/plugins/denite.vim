@@ -1,5 +1,10 @@
+autocmd FileType denite call s:denite_my_settings()
+
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  " 【l】ファイルを開く
+  nnoremap <silent><buffer><expr> l
   \ denite#do_map('do_action')
   " 【o】 ファイルを開く
   nnoremap <silent><buffer><expr> o
@@ -22,14 +27,33 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> q
   \ denite#do_map('quit')
   " 【i】 ファイル名で検索する
-  nnoremap <silent><buffer><expr> i
+  nnoremap <silent><buffer><expr> /
   \ denite#do_map('open_filter_buffer')
   " 【SPACE】 ファイルを複数選択する
   nnoremap <silent><buffer><expr> <Space>
   \ denite#do_map('toggle_select').'j'
+  " .. 1個上のディレクトリへ行く
+  nnoremap <silent><buffer><expr> ..
+  \ denite#do_map('move_up_path')
 endfunction
+
+let s:denite_win_width_percent = 0.4
+let s:denite_win_height_percent = 0.4
+
+" Change denite default options
+call denite#custom#option('default', {
+    \ 'split': 'floating',
+    \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
+    \ 'wincol': float2nr((&columns - (&columns * s:denite_win_width_percent)) / 2),
+    \ 'winheight': float2nr(&lines * s:denite_win_height_percent),
+    \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
+    \ })
+
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 
 function! s:denite_filter_my_settings() abort
   imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
 endfunction
+
+nnoremap <silent> <C-d><C-b> :Denite buffer<CR>
+nnoremap <silent> <C-d><C-g> :Denite grep<CR>
