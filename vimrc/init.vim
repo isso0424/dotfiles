@@ -15,9 +15,9 @@ if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
 " All of your Plugins must be added before the following line
     let s:toml_dir = expand('~/dotfiles/vimrc/toml')
-    let s:toml     = '~/dotfiles/vimrc/toml/dein.toml'
-    let s:lazy     = '~/dotfiles/vimrc/toml/lazy.toml'
-    let s:language = '~/dotfiles/vimrc/toml/language.toml'
+    let s:toml     = s:toml_dir . '/dein.toml'
+    let s:lazy     = s:toml_dir . '/lazy.toml'
+    let s:language = s:toml_dir . '/language.toml'
 
     call dein#load_toml(s:toml, {'lazy': 0})
     call dein#load_toml(s:lazy, {'lazy': 1})
@@ -132,10 +132,6 @@ set guifont=MS_Gothic:h12:cSHIFTJIS
 " inoremap {<Enter> {}<LEFT><CR><ESC><S-0>
 "バッファ用
 set hidden
-"NERDTreeを展開
-"###########################################################################################
-"プラグインの設定
-"################
 
 " We need nocompatible mode in order to continue lines with backslashes.
 " Original setting will be restored.
