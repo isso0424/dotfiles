@@ -103,7 +103,9 @@ set showmatch
 set laststatus=2
 
 "カラースキームの適用
-colorscheme gruvbox
+colorscheme tender
+let g:lightline = { 'colorscheme': 'tender' }
+let g:airline_theme = 'tender'
 
 set background=dark
 

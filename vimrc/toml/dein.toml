@@ -6,6 +6,9 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'morhetz/gruvbox'
 
+[[plugins]]
+repo = 'jacoborus/tender.vim'
+
 # molokai
 [[plugins]]
 repo = 'tomasr/molokai'
@@ -40,3 +43,22 @@ source ~/dotfiles/vimrc/plugins/airline-theme.vim
 [[plugins]]
 repo = 'luochen1990/rainbow'
 hook_add = 'let g:rainbow_active = 1'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+hook_add = '''
+source ~/dotfiles/vimrc/plugins/coc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+source ~/dotfiles/vimrc/plugins/denite.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = '''
+source ~/dotfiles/vimrc/plugins/defx.vim
+'''

@@ -1,6 +1,3 @@
-
-autocmd BufWritePost * call defx#redraw()
-autocmd BufEnter * call defx#redraw()
 call defx#custom#option('_', {
       \ 'winwidth': 40,
       \ 'split': 'vertical',

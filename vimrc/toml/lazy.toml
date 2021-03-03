@@ -6,31 +6,12 @@ source ~/dotfiles/vimrc/plugins/ultisnip.vim
 '''
 
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-rev = 'release'
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/coc.vim
-'''
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/denite.vim
-'''
-
-[[plugins]]
 repo = 'simeji/winresizer'
 
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
 let g:ale_completion_enabled = 0
-'''
-
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/defx.vim
 '''
 
 [[plugins]]
