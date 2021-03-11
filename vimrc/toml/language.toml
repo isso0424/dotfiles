@@ -73,3 +73,7 @@ on_ft = ['graphql']
 [[plugins]]
 repo = 'pantharshit00/vim-prisma'
 on_ft = ['prisma']
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']

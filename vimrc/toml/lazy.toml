@@ -12,6 +12,9 @@ repo = 'simeji/winresizer'
 repo = 'w0rp/ale'
 hook_add = '''
 let g:ale_completion_enabled = 0
+let g:ale_linters = {
+  \ 'vue': ['eslint']
+  \ }
 '''
 
 [[plugins]]
