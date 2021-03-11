@@ -43,3 +43,5 @@ nnoremap si 0I//
 
 " MarkdownPreview
 noremap sm :MarkdownPreview<CR>
+
+nnoremap td :grep TODO -r $(ls \\| grep -Po '^(?!.*node_modules).*$')<CR>
