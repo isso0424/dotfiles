@@ -70,24 +70,6 @@ set showmatch
 "ステータスラインを常に表示
 set laststatus=2
 
-
-set pyxversion=3
-"カラースキームの適用
-colorscheme molokai
-
-set background=dark
-
-" 背景の透明化
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
-highlight Folded ctermbg=none
-highlight EndOfBuffer ctermbg=none 
-
-
-"フォントサイズ
-set guifont=MS_Gothic:h12:cSHIFTJIS
-
 "閉じ括弧補完
 " inoremap { {}<LEFT>
 " inoremap ( ()<LEFT>
@@ -98,89 +80,8 @@ set guifont=MS_Gothic:h12:cSHIFTJIS
 " inoremap {<Enter> {}<LEFT><CR><ESC><S-0>
 "バッファ用
 set hidden
-"NERDTreeを展開
-"###########################################################################################
-"プラグインの設定
-"################
-
-" We need nocompatible mode in order to continue lines with backslashes.
-" Original setting will be restored.
-let s:cpo_save = &cpo
-set cpo&vim
-
-syn match pythonOperator "\(+\|=\|-\|\^\|\*\)"
-syn match pythonDelimiter "\(,\|\.\|:\)"
-syn keyword pythonSpecialWord self
-
-hi link pythonSpecialWord    Special
-hi link pythonDelimiter      Special
-
-let b:current_after_syntax = 'python'
-
-let &cpo = s:cpo_save
-unlet s:cpo_save
-
-"########
-"air-line
-"########
-"basic
-",で次のバッファの表示
-nnoremap <silent> , :bprev<CR>
-".で前のバッファ表示
-nnoremap <silent> . :bnext<CR>
-"bdで現在のバッファ削除
-nnoremap bd :bd<CR>
-
-nnoremap s <Nop>
-
-" :qのショートカット
-nnoremap sq :q<CR>
-
-" タブ関連
-nnoremap st :tabnew<CR>
-nnoremap se gt
-nnoremap sw gT
-
-" ウィンドウの移動ショートカット
-nnoremap sh <C-w>h
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-
-" ウィンドウの分割
-nnoremap ss :split<CR>
-nnoremap sv :vsplit<CR>
-
-" 検索ハイライト解除
-nnoremap s<Esc> :nohlsearch<CR>
-
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-
-inoremap  jj <ESC>:w<CR>
-inoremap <ESC> <Nop>
 
 set clipboard=unnamed,autoselect
 
-nnoremap / :<C-u>action Find<CR>
-nnoremap s/u :<C-u>action FindUsages<CR>
-nnoremap s/e :<C-u>action SearchEverywhere<CR>
-
-nnoremap sk :<C-u>action MethodUp<CR>
-nnoremap sm :<C-u>action MethodDown<CR>
-
-nnoremap scb :<C-u>action VcsShowPrevChangeMarker<CR>
-nnoremap scn :<C-u>action VcsShowNextChangeMarker<CR>
-
-nnoremap src :<C-u>action ReformatCode<CR>
-nnoremap srn :<C-u>action ReformatCode<CR>
-
-nnoremap sd :<C-u>action GotoDeclaration<CR>
-nnoremap s// :<C-u>action CommentByLineComment<CR>
+source ~/dotfiles/vimrc/shortcuts/general.vim
+source ~/dotfiles/vimrc/shortcuts/idea.vim
