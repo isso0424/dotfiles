@@ -18,7 +18,7 @@ set vertical-split = yes
 set tab-size = 2
 
 # 検索時に大文字小文字を無視する
-set ignore-case true
+set ignore-case = true
 
 # g をファイル先頭に移動に変更、 view-grep を再割当て
 bind generic g      move-first-line
@@ -34,3 +34,14 @@ bind generic <Ctrl-g> refresh
 # F で fetch (default: :toggle file-name / :toggle commit-title-refs)
 bind generic F      ?git fetch %(remote)
 bind main    F      ?git fetch %(remote)
+
+# . で HEAD との diff
+bind main    .      !sh -c "git diff %(commit) | tig"
+bind diff    .      !sh -c "git diff %(commit) | tig"
+bind refs    .      !sh -c "git diff %(branch) | tig"
+
+# U で pull
+bind generic U      ?git pull %(remote)
+
+# P で remote への push
+bind generic P      ?git push -u %(remote) %(repo:head)
