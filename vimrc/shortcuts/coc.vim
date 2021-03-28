@@ -25,6 +25,7 @@ xmap <leader>f <Plug>(coc-format-selected)
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr><C-j> pumvisible() ? "\<C-p>" : "<C-j>"
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
