@@ -228,3 +228,5 @@ alias start="source start"
 export EDITOR="nvim"
 
 eval $(thefuck --alias)
+
+export GPG_TTY=$(tty)
