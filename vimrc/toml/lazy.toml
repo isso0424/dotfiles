@@ -19,3 +19,39 @@ let g:ale_linters = {
 
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
+
+[[plugins]]
+repo = 'justmao945/vim-clang'
+on_ft = ['c']
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_ft = ['c']
+
+# 閉じタグ
+[[plugins]]
+repo = 'alvan/vim-closetag'
+on_ft = ['typescript']
+hook_add = '''
+let g:closetag_filenames = "*.tsx"
+let g:closetag_xhtml_filenames = "*.tsx"
+let g:closetag_filetypes = "*.tsx"
+let g:closetag_xhtml_filetypes = "*.tsx"
+'''
+
+# rust用
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+hook_source = '''
+let g:rustfmt_autosave = 1
+let g:rust_doc#define_map_K = 0
+'''
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = ['graphql']
+
+[[plugins]]
+repo = 'pantharshit00/vim-prisma'
+on_ft = ['prisma']
