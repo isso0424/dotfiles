@@ -5,7 +5,7 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr " %F{154}✓%f"
 zstyle ':vcs_info:git:*' unstagedstr " %F{217}×%f"
-zstyle ':vcs_info:*' formats " $SEPARATOR %F{151}%b%f%c%u"
+zstyle ':vcs_info:*' formats " $SEPARATOR %F{151}Branch: %b%f%c%u "
 zstyle ':vcs_info:*' actionformats " $SEPARATOR %F{151}%b%f%u %F{245}(now %F{148}%a%F{245})%f"
 
 function zle-line-init zle-keymap-select {
@@ -16,12 +16,10 @@ function zle-line-init zle-keymap-select {
     # 表示用の文字列を用意する。
     local SEPARATOR="%F{255}%B† %b%f"
 
-    local PWD="%F{229}%B%1~%b%f"
+    local PWD="%F{229}%B%0~%b%f"
     local CHARACTER="%F{223}ᓀ%B%(?:ˬ:_))フ%f%b"
-    local EXIT_CODE="%(?:: $SEPARATOR %F{242}e/%B%F{red}%?%f%b)"
     local HOSTNAME=""
     local SYMBOL_CHARACTER="-"
-    local VIM_MODE=" $SEPARATOR %F{242}v/%F{240}$KEYMAP%f"
     
     # 外部接続だった場合のプロンプト。
     if [ -n "$SSH_CONNECTION" ]; then
@@ -32,30 +30,24 @@ function zle-line-init zle-keymap-select {
     # モードに応じてプロンプトを変更する。
     case $KEYMAP in
     vicmd)
-            VIM_MODE="%F{097}%Bnormal%b%f"
         SYMBOL_CHARACTER="==-"
     ;;
     main|viins)
-            VIM_MODE="%F{043}%Binsert%b%f"
         SYMBOL_CHARACTER="==▶"
     ;;
         vivis)
-            VIM_MODE="%F{213}%Bvisual%b%f"
             SYMBOL_CHARACTER="==■"
         ;;
         vivli)
-            VIM_MODE="%F{213}%BvisualLine(line)%b%f"
             SYMBOL_CHARACTER="==■"
         ;;
   esac
-    local MODE=" $SEPARATOR %F{070}MODE%f/$VIM_MODE"
     
-    # 前回のコマンドの結果に基づいて色を変える。
-    local SYMBOL="%B%(?:%F{150}:%F{red})$SYMBOL_CHARACTER%b%{$reset_color%}"
+    local SYMBOL="%B%F{150}$SYMBOL_CHARACTER%b%{$reset_color%}"
 
     # プロンプトを用意する。
     PROMPT="
- $SEPARATOR%F{242}%f$PWD${vcs_info_msg_0_}$EXIT_CODE$MODE$HOSTNAME $SEPARATOR
+ $SEPARATOR%F{242}%f$PWD${vcs_info_msg_0_}$MODE$HOSTNAME$SEPARATOR
  %F{242}%f$SYMBOL "
 
      # 更新。
