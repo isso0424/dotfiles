@@ -43,7 +43,7 @@ function zle-line-init zle-keymap-select {
         ;;
   esac
     
-    local SYMBOL="%B%F{150}$SYMBOL_CHARACTER%b%{$reset_color%}"
+    local SYMBOL="%B%F{150}$SYMBOL_CHARACTER%f%b"
 
     # プロンプトを用意する。
     PROMPT="
