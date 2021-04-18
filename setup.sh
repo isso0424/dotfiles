@@ -11,4 +11,5 @@ ln -sf ~/dotfiles/tigrc/.tigrc ~/.tigrc
 ln -sf ~/dotfiles/vimrc/.ideavimrc ~/.ideavimrc
 
 sudo chmod 777 ~/dotfiles/proxy/* ~/dotfiles/commands/*
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
