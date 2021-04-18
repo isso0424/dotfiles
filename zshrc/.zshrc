@@ -211,7 +211,7 @@ autoload -Uz _zinit
 #zplugin light Valodim/zsh-prompt-powerline
 if [ -e $HOME/.nvm ]; then
   source ~/.nvm/nvm.sh
-  nvm use 14.15.3
+  nvm use stable
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
