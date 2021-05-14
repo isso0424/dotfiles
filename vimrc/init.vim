@@ -124,14 +124,6 @@ highlight EndOfBuffer ctermbg=none
 "フォントサイズ
 set guifont=MS_Gothic:h12:cSHIFTJIS
 
-"閉じ括弧補完
-" inoremap { {}<LEFT>
-" inoremap ( ()<LEFT>
-" inoremap [ []<LEFT>
-" inoremap < <><LEFT>
-" inoremap ' ''<LEFT>
-" inoremap " ""<LEFT>
-" inoremap {<Enter> {}<LEFT><CR><ESC><S-0>
 "バッファ用
 set hidden
 
