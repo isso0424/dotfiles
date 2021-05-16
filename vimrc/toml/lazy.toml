@@ -55,3 +55,6 @@ on_ft = ['graphql']
 [[plugins]]
 repo = 'pantharshit00/vim-prisma'
 on_ft = ['prisma']
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
