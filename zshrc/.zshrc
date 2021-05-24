@@ -251,3 +251,5 @@ eval $(thefuck --alias)
 export GPG_TTY=$(tty)
 
 source "${HOME}/.zgen/zgen.zsh"
+
+alias cat="bat"
