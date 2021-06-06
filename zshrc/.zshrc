@@ -1,5 +1,4 @@
-# -----------------------------
-# Lang
+# ----------------------------- Lang
 # -----------------------------
 #export LANG=ja_JP.UTF-8
 #export LESSCHARSET=utf-8
@@ -253,3 +252,4 @@ export GPG_TTY=$(tty)
 source "${HOME}/.zgen/zgen.zsh"
 
 alias cat="bat"
+alias ls="lsd -l"
