@@ -253,3 +253,6 @@ source "${HOME}/.zgen/zgen.zsh"
 
 alias cat="bat"
 alias ls="lsd -l"
+
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
