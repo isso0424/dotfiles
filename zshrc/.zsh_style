@@ -1,12 +1,17 @@
-local SEPARATOR="%F{250}%B†%f"
+local SEPARATOR_COLOR="211"
+local DIR_COLOR="087"
+local VCS_COLOR="043"
+local CURSOR_COLOR="045"
+
+local SEPARATOR="%F{$SEPARATOR_COLOR}%B†%f"
 
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr " %F{154}✓%f"
-zstyle ':vcs_info:git:*' unstagedstr " %F{217}✚%f"
-zstyle ':vcs_info:*' formats " $SEPARATOR %F{151}Branch: %b%f%c%u "
-zstyle ':vcs_info:*' actionformats " $SEPARATOR %F{151}%b%f%u %F{245}(now %F{148}%a%F{245})%f"
+zstyle ':vcs_info:git:*' stagedstr " %F{154}%f"
+zstyle ':vcs_info:git:*' unstagedstr " %F{217}%f"
+zstyle ':vcs_info:*' formats "$SEPARATOR %F{$VCS_COLOR} %b%f%c%u "
+zstyle ':vcs_info:*' actionformats "$SEPARATOR %F{$VCS_COLOR}%b%f%u %F{245}(now %F{148}%a%F{245})%f"
 
 function zle-line-init zle-keymap-select {
 
@@ -14,9 +19,8 @@ function zle-line-init zle-keymap-select {
     vcs_info
 
     # 表示用の文字列を用意する。
-    local SEPARATOR="%F{255}%B† %b%f"
 
-    local PWD="%F{229}%B%0~%b%f"
+    local PWD="%F{${DIR_COLOR}}%B %0~%b%f"
     local CHARACTER="%F{223}ᓀ%B%(?:ˬ:_))フ%f%b"
     local HOSTNAME=""
     local SYMBOL_CHARACTER="-"
@@ -43,12 +47,11 @@ function zle-line-init zle-keymap-select {
         ;;
   esac
     
-    local SYMBOL="%B%F{150}$SYMBOL_CHARACTER%f%b"
+    local SYMBOL="%B%F{$CURSOR_COLOR}$SYMBOL_CHARACTER%f%b"
 
     # プロンプトを用意する。
-    PROMPT="
- $SEPARATOR%F{242}%f$PWD${vcs_info_msg_0_}$MODE$HOSTNAME$SEPARATOR
- %F{242}%f$SYMBOL "
+    PROMPT="$SEPARATOR $PWD${vcs_info_msg_0_}$HOSTNAME$SEPARATOR
+$SYMBOL "
 
      # 更新。
     zle reset-prompt
