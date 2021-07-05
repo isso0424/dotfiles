@@ -1,0 +1,12 @@
+#########
+# tools #
+#########
+if [ -e $(which tmux) ]; then
+  if [ -v $TMUX ]; then
+    tmux
+  fi
+fi
+
+if [ -e $(which thefuck) ]; then
+  eval $(thefuck --alias f)
+fi

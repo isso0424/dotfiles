@@ -1,0 +1,7 @@
+#########
+# alias #
+#########
+alias report="source report"
+alias start="source start"
+alias cat="bat"
+alias ls="lsd -l"
