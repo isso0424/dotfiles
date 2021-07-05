@@ -1,2 +1,9 @@
 # zgen(プラグインマネージャーの有効化
 source $HOME/.zgen/zgen.zsh
+
+# 入力中に補完出すヤツ
+zgen load zsh-users/zsh-autosuggestions
+# シンタックスハイライト
+zgen load zdharma/fast-syntax-highlighting
+# 補完強化
+zgen load zsh-users/zsh-completions
