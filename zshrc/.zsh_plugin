@@ -1,0 +1,4 @@
+# zgen(プラグインマネージャーの有効化
+source $HOME/.zgen/zgen.zsh
+# wakatimeのplugin
+zgen load sobolevn/wakatime-zsh-plugin

@@ -6,6 +6,7 @@ setting_files=(
   .zsh_alias
   .zsh_profile
   .zsh_tools
+  .zsh_plugin
 )
 for file in $setting_files
 do
