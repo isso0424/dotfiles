@@ -3,7 +3,7 @@
 #########
 if [ -e $(which tmux) ]; then
   if [ -v $TMUX ]; then
-    nvm use stable
+    nvm use default
     tmux
   fi
 fi
