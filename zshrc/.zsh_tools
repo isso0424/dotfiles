@@ -3,9 +3,26 @@
 #########
 if [ -e $(which tmux) ]; then
   if [ -v $TMUX ]; then
-    nvm use default
-    tmux
-  else
-    tmux choose-session
+    HOGE=$(ps -e | grep tmux)
+    if [ $? = 0 ]; then
+      if [ -e $(which fzf) ]; then
+        ID=$(tmux list-sessions)
+        if [ -z $ID ]; then
+          tmux new-session
+        fi
+        ID="$ID\nCreate new session:"
+        ID=$(echo $ID | fzf | cut -d: -f1)
+        if [[ $ID = "Create new session" ]]; then
+          tmux new-session
+        else
+          tmux attach-session -t $ID
+        fi
+      else
+        tmux attach-session -t $(tmux list-sessions | cut -c 1)
+      fi
+    else
+      nvm use default
+      tmux
+    fi
   fi
 fi
