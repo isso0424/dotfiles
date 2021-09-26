@@ -5,5 +5,7 @@ if [ -e $(which tmux) ]; then
   if [ -v $TMUX ]; then
     nvm use default
     tmux
+  else
+    tmux choose-session
   fi
 fi
