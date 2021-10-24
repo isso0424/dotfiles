@@ -81,3 +81,11 @@ on_ft = ['vue']
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
 on_ft = ['Dockerfile']
+
+[[plugins]]
+repo = 'sudar/vim-arduino-syntax'
+on_ft = ['arduino']
+
+[[plugins]]
+repo = 'stevearc/vim-arduino'
+on_ft = ['arduino']
