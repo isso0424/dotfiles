@@ -1,0 +1,5 @@
+#!/bin/zsh
+go test -cover ./... -coverprofile=cover.out
+go tool cover -html=cover.out -o cover.html
+chromium file://$(pwd)/cover.html
+rm cover.*
