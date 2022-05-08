@@ -12,14 +12,15 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr " "
 zstyle ':vcs_info:git:*' unstagedstr " "
-zstyle ':vcs_info:*' formats "$SEPARATOR %F{$VCS_COLOR} %b%f%c%u%m $SEPARATOR"
+zstyle ':vcs_info:*' formats "$SEPARATOR %F{$VCS_COLOR} %b%f %c %u%m $SEPARATOR"
 zstyle ':vcs_info:*' actionformats "$SEPARATOR %F{$VCS_COLOR}%b%f%u %F{245}(now %F{148}%a%F{245})%f"
 
 zstyle ':vcs_info:git+set-message:*' hooks \
                                       git-hook-begin \
                                       git-untracked \
                                       git-staged \
-                                      git-unstaged
+                                      git-unstaged \
+                                      git-push-status
 
 function +vi-git-hook-begin() {
   if [[ $(git rev-parse  --is-inside-work-tree) != 'true' ]]; then
@@ -29,16 +30,28 @@ function +vi-git-hook-begin() {
   return 0
 }
 
-function +vi-git-untracked() {
-    hook_com[misc]+=' ?'
-}
-
 function +vi-git-staged() {
     hook_com[staged]+="%F{154}+$(git diff --staged | grep '^+' | wc -l | sed 's/ *//g')/-$(git diff --staged | grep '^-' | wc -l | sed 's/ *//g')%f"
 }
 
 function +vi-git-unstaged() {
     hook_com[unstaged]+="%F{217}+$(git diff | grep '^+' | wc -l | sed 's/ *//g')/-$(git diff | grep '^-' | wc -l | sed 's/ *//g')%f"
+}
+
+function +vi-git-push-status() {
+  local branch
+  branch=$(git symbolic-ref --short HEAD)
+  if [[ $(git branch -a | grep "origin/$branch" | wc -l | tr -d ' ') == "0" ]]; then
+    hook_com[misc]+=" (p ?)"
+    return 0
+  fi
+  ahead=$(command git rev-list origin/master..master 2>/dev/null \
+    | wc -l \
+    | tr -d ' ')
+  if [[ "$ahead" -gt 0 ]]; then
+    # misc (%m) に追加
+    hook_com[misc]+=" (p ${ahead})"
+  fi
 }
 
 function zle-line-init zle-keymap-select {
