@@ -127,6 +127,8 @@ set guifont=MS_Gothic:h12:cSHIFTJIS
 "バッファ用
 set hidden
 
+set laststatus=3
+
 " We need nocompatible mode in order to continue lines with backslashes.
 " Original setting will be restored.
 let s:cpo_save = &cpo
