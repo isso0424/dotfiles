@@ -3,7 +3,7 @@
 #########
 if [ -e $(which tmux) ]; then
   if [ -v $TMUX ]; then
-    HOGE=$(ps -e | grep tmux)
+    HOGE=$(ps -e | grep -v "grep" | grep "tmux")
     if [ $? = 0 ]; then
       if [ -e $(which fzf) ]; then
         ID=$(tmux list-sessions)
