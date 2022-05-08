@@ -5,13 +5,41 @@ local CURSOR_COLOR="045"
 
 local SEPARATOR="%F{$SEPARATOR_COLOR}%B†%f"
 
+autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 setopt prompt_subst
+
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr " %F{154}%f"
-zstyle ':vcs_info:git:*' unstagedstr " %F{217}%f"
-zstyle ':vcs_info:*' formats "$SEPARATOR %F{$VCS_COLOR} %b%f%c%u "
+zstyle ':vcs_info:git:*' stagedstr " "
+zstyle ':vcs_info:git:*' unstagedstr " "
+zstyle ':vcs_info:*' formats "$SEPARATOR %F{$VCS_COLOR} %b%f%c%u%m $SEPARATOR"
 zstyle ':vcs_info:*' actionformats "$SEPARATOR %F{$VCS_COLOR}%b%f%u %F{245}(now %F{148}%a%F{245})%f"
+
+zstyle ':vcs_info:git+set-message:*' hooks \
+                                      git-hook-begin \
+                                      git-untracked \
+                                      git-staged \
+                                      git-unstaged
+
+function +vi-git-hook-begin() {
+  if [[ $(git rev-parse  --is-inside-work-tree) != 'true' ]]; then
+    return 1
+  fi
+
+  return 0
+}
+
+function +vi-git-untracked() {
+    hook_com[misc]+=' ?'
+}
+
+function +vi-git-staged() {
+    hook_com[staged]+="%F{154}+$(git diff --staged | grep '^+' | wc -l | sed 's/ *//g')/-$(git diff --staged | grep '^-' | wc -l | sed 's/ *//g')%f"
+}
+
+function +vi-git-unstaged() {
+    hook_com[unstaged]+="%F{217}+$(git diff | grep '^+' | wc -l | sed 's/ *//g')/-$(git diff | grep '^-' | wc -l | sed 's/ *//g')%f"
+}
 
 function zle-line-init zle-keymap-select {
 
@@ -50,7 +78,7 @@ function zle-line-init zle-keymap-select {
     local SYMBOL="%B%F{$CURSOR_COLOR}$SYMBOL_CHARACTER%f%b"
 
     # プロンプトを用意する。
-    PROMPT="$SEPARATOR $PWD${vcs_info_msg_0_}$HOSTNAME$SEPARATOR
+    PROMPT="$SEPARATOR $PWD$HOSTNAME$SEPARATOR
 $SYMBOL "
 
      # 更新。
@@ -61,3 +89,28 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 SPROMPT=" %F{247}%R%f → %F{117}%B%r%b %f: "
+
+function _update_vcs_info_msg() {
+    local -a messages
+    local prompt
+
+    LANG=en_US.UTF-8 vcs_info
+
+    if [[ -z ${vcs_info_msg_0_} ]]; then
+        # vcs_info で何も取得していない場合はプロンプトを表示しない
+        prompt=""
+    else
+        # vcs_info で情報を取得した場合
+        # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
+        # それぞれ緑、黄色、赤で表示する
+        [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{green}${vcs_info_msg_0_}%f" )
+        [[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
+        [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
+
+        # 間にスペースを入れて連結する
+        prompt="${(j: :)messages}"
+    fi
+
+    RPROMPT="$prompt"
+}
+add-zsh-hook precmd _update_vcs_info_msg
