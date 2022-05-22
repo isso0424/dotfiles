@@ -1,4 +1,4 @@
-vim.opt.nocompatible = true
+vim.opt.compatible = false
 vim.cmd('filetype off')
 
 local cache_home = vim.fn.expand("~/.cache")
@@ -31,23 +31,23 @@ end
 
 -- Options
 -- encoding
-vim.cmd('set encoding=utf-8')
-vim.cmd('scriptencoding utf-8')
-vim.cmd('set fileformats=unix,dos,mac')
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencodings = 'utf-8'
+vim.opt.fileformats = 'unix,dos,mac'
 
 -- editor
-vim.cmd('set number')
 vim.cmd('syntax on')
-vim.cmd('set nowrap')
-vim.cmd('set showcmd')
-vim.cmd('set cursorline')
-vim.cmd('set cursorcolumn')
-vim.cmd('set laststatus=2')
-vim.cmd('set pyxversion=3')
-vim.cmd('set ambiwidth=double')
+vim.opt.number = true
+vim.opt.wrap = false
+vim.opt.showcmd = true
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+vim.opt.laststatus = 2
+vim.opt.pyxversion = 3
+vim.opt.ambiwidth = 'double'
 
 -- background
-vim.cmd('set background=dark')
+vim.opt.background = 'dark'
 vim.cmd('highlight Normal ctermbg=none')
 vim.cmd('highlight NonText ctermbg=none')
 vim.cmd('highlight LineNr ctermbg=none')
@@ -55,31 +55,28 @@ vim.cmd('highlight Folded ctermbg=none')
 vim.cmd('highlight EndOfBuffer ctermbg=none ')
 
 -- indent
-vim.cmd('set autoindent')
-vim.cmd('set smartindent')
-vim.cmd('set expandtab')
-vim.cmd('set tabstop=2')
-vim.cmd('set shiftwidth=2')
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 -- control
-vim.cmd('set backspace=indent.eol,start')
-vim.cmd('set virtualedit=onemore')
-vim.cmd('set showmatch')
+vim.opt.backspace = {'indent', 'eol', 'start'}
+vim.opt.virtualedit = 'onemore'
+vim.opt.showmatch = true
 
 -- command
-vim.cmd('set wild')
-vim.cmd('set history=100')
+vim.opt.wildmenu = true
+vim.opt.history = 100
 
 -- search
-vim.cmd('set hlsearch')
+vim.opt.hlsearch = true
 
 -- backups
-vim.cmd('set nobackup')
-vim.cmd('set noswapfile')
+vim.opt.backup = false
+vim.opt.swapfile = false
 
 -- file
-vim.cmd('set hidden')
-vim.cmd('set autoread')
-
--- clipboard
-vim.cmd('set clipboard=unnamed,autoselect')
+vim.opt.hidden = true
+vim.opt.autoread = true
