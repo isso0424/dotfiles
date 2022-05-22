@@ -1,4 +1,4 @@
-vim.cmd('set nocompatible')
+vim.opt.nocompatible = true
 vim.cmd('filetype off')
 
 local cache_home = vim.fn.expand("~/.cache")
@@ -28,3 +28,58 @@ end
 if (vim.fn['dein#check_install']() ~= 0) then
   vim.fn['dein#install']()
 end
+
+-- Options
+-- encoding
+vim.cmd('set encoding=utf-8')
+vim.cmd('scriptencoding utf-8')
+vim.cmd('set fileformats=unix,dos,mac')
+
+-- editor
+vim.cmd('set number')
+vim.cmd('syntax on')
+vim.cmd('set nowrap')
+vim.cmd('set showcmd')
+vim.cmd('set cursorline')
+vim.cmd('set cursorcolumn')
+vim.cmd('set laststatus=2')
+vim.cmd('set pyxversion=3')
+vim.cmd('set ambiwidth=double')
+
+-- background
+vim.cmd('set background=dark')
+vim.cmd('highlight Normal ctermbg=none')
+vim.cmd('highlight NonText ctermbg=none')
+vim.cmd('highlight LineNr ctermbg=none')
+vim.cmd('highlight Folded ctermbg=none')
+vim.cmd('highlight EndOfBuffer ctermbg=none ')
+
+-- indent
+vim.cmd('set autoindent')
+vim.cmd('set smartindent')
+vim.cmd('set expandtab')
+vim.cmd('set tabstop=2')
+vim.cmd('set shiftwidth=2')
+
+-- control
+vim.cmd('set backspace=indent.eol,start')
+vim.cmd('set virtualedit=onemore')
+vim.cmd('set showmatch')
+
+-- command
+vim.cmd('set wild')
+vim.cmd('set history=100')
+
+-- search
+vim.cmd('set hlsearch')
+
+-- backups
+vim.cmd('set nobackup')
+vim.cmd('set noswapfile')
+
+-- file
+vim.cmd('set hidden')
+vim.cmd('set autoread')
+
+-- clipboard
+vim.cmd('set clipboard=unnamed,autoselect')
