@@ -102,8 +102,6 @@ set laststatus=2
 
 
 set pyxversion=3
-"カラースキームの適用
-colorscheme gruvbox
 
 set background=dark
 
