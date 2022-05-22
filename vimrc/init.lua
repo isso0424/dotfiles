@@ -29,6 +29,23 @@ if (vim.fn['dein#check_install']() ~= 0) then
   vim.fn['dein#install']()
 end
 
+-- Key configurations
+-- window
+vim.api.nvim_set_keymap('n', 'sh', '<C-w>h', { noremap=true })
+vim.api.nvim_set_keymap('n', 'sj', '<C-w>j', { noremap=true })
+vim.api.nvim_set_keymap('n', 'sk', '<C-w>k', { noremap=true })
+vim.api.nvim_set_keymap('n', 'sl', '<C-w>l', { noremap=true })
+
+vim.api.nvim_set_keymap('n', 'ss', ':split<CR>', { noremap=true })
+vim.api.nvim_set_keymap('n', 'sv', ':vsplit<CR>', { noremap=true })
+
+-- wq
+vim.api.nvim_set_keymap('n', 'sq', ':q<CR>', { noremap=true })
+vim.api.nvim_set_keymap('i', 'jj', '<Esc>:w<CR>', { noremap=true })
+
+-- search
+vim.api.nvim_set_keymap('n', 's<Esc>', ':nohlsearch<CR>', { noremap=true })
+
 -- Options
 -- encoding
 vim.opt.encoding = 'utf-8'
