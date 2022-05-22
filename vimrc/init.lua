@@ -12,7 +12,6 @@ vim.api.nvim_set_option('runtimepath', dein_repo_dir..','..vim.api.nvim_get_opti
 
 if (vim.fn['dein#load_state'](dein_dir) == 1) then
   vim.fn['dein#begin'](dein_dir)
-  vim.fn['dein#add']('marko-cerovac/material.nvim')
   local toml_dir = vim.fn.expand("~/dotfiles/vimrc/toml")
   local toml = toml_dir..'/dein.toml'
   local lazy = toml_dir..'/lazy.toml'
@@ -28,6 +27,8 @@ end
 if (vim.fn['dein#check_install']() ~= 0) then
   vim.fn['dein#install']()
 end
+
+vim.cmd('colorscheme material')
 
 -- Key configurations
 -- window
@@ -97,3 +98,5 @@ vim.opt.swapfile = false
 -- file
 vim.opt.hidden = true
 vim.opt.autoread = true
+
+require("index")

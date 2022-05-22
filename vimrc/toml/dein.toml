@@ -9,6 +9,9 @@ repo = 'morhetz/gruvbox'
 [[plugins]]
 repo = 'jacoborus/tender.vim'
 
+[[plugins]]
+repo = 'marko-cerovac/material.nvim'
+
 # molokai
 [[plugins]]
 repo = 'tomasr/molokai'
