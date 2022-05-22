@@ -9,6 +9,7 @@ ln -sf ~/dotfiles/tmuxconf/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.xprofile ~/.xprofile
 ln -sf ~/dotfiles/tigrc/.tigrc ~/.tigrc
 ln -sf ~/dotfiles/vimrc/.ideavimrc ~/.ideavimrc
+ln -sf ~/dotfiles/vimrc/lua ~/.config/nvim/lua
 
 sudo chmod 777 ~/dotfiles/proxy/* ~/dotfiles/commands/*
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
