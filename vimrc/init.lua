@@ -100,5 +100,3 @@ vim.opt.swapfile = false
 -- file
 vim.opt.hidden = true
 vim.opt.autoread = true
-
-require("index")
