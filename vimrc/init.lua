@@ -29,6 +29,7 @@ if (vim.fn['dein#check_install']() ~= 0) then
 end
 
 vim.cmd('colorscheme material')
+vim.g.material_style = "deep ocean"
 
 -- Key configurations
 -- window
