@@ -66,12 +66,13 @@ vim.opt.pyxversion = 3
 vim.opt.ambiwidth = 'double'
 
 -- background
-vim.opt.background = 'dark'
-vim.cmd('highlight Normal ctermbg=none')
-vim.cmd('highlight NonText ctermbg=none')
-vim.cmd('highlight LineNr ctermbg=none')
-vim.cmd('highlight Folded ctermbg=none')
-vim.cmd('highlight EndOfBuffer ctermbg=none ')
+vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
+vim.cmd('highlight NonText ctermbg=NONE guibg=NONE')
+vim.cmd('highlight LineNr ctermbg=NONE guibg=NONE')
+vim.cmd('highlight Folded ctermbg=NONE guibg=NONE')
+vim.cmd('highlight EndOfBuffer ctermbg=NONE guibg=NONE')
+vim.cmd('highlight SpecialKey ctermbg=NONE guibg=NONE')
+vim.cmd('highlight NormalNC ctermbg=NONE guibg=NONE')
 
 -- indent
 vim.opt.autoindent = true
