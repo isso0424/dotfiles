@@ -2,7 +2,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# 目に優しいカラースキーム
 [[plugins]]
 repo = 'marko-cerovac/material.nvim'
 
@@ -10,7 +9,10 @@ repo = 'marko-cerovac/material.nvim'
 repo = 'simeji/winresizer'
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
+repo = 'nvim-lualine/lualine.nvim'
+hook_add = '''
+source ~/dotfiles/vimrc/lua/plugins/lualine.lua
+'''
 
 [[plugins]]
 repo = "airblade/vim-gitgutter"
@@ -23,5 +25,8 @@ repo = 'luochen1990/rainbow'
 hook_add = 'let g:rainbow_active = 1'
 
 [[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-hook_post_update = "TSUpdate"
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+hook_add = '''
+source ~/dotfiles/vimrc/plugins/coc.vim
+'''
