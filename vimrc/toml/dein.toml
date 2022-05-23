@@ -4,26 +4,13 @@ repo = 'Shougo/dein.vim'
 
 # 目に優しいカラースキーム
 [[plugins]]
-repo = 'morhetz/gruvbox'
-
-[[plugins]]
-repo = 'jacoborus/tender.vim'
-
-[[plugins]]
 repo = 'marko-cerovac/material.nvim'
 
-# molokai
 [[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
-repo = 'honza/vim-snippets'
+repo = 'simeji/winresizer'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-
-[[plugins]]
-repo = 'Townk/vim-autoclose'
 
 [[plugins]]
 repo = "airblade/vim-gitgutter"
@@ -32,39 +19,9 @@ source ~/dotfiles/vimrc/plugins/vim-gitgutter.vim
 '''
 
 [[plugins]]
-repo = "tpope/vim-fugitive"
-
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/airline-theme.vim
-'''
-
-[[plugins]]
 repo = 'luochen1990/rainbow'
 hook_add = 'let g:rainbow_active = 1'
 
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-rev = 'release'
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/coc.vim
-'''
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/denite.vim
-'''
-
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/defx.vim
-'''
-
-[[plugins]]
-repo = 'wakatime/vim-wakatime'
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_post_update = "TSUpdate"
