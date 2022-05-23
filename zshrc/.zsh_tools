@@ -21,7 +21,6 @@ if [ -e $(which tmux) ]; then
         tmux attach-session -t $(tmux list-sessions | cut -c 1)
       fi
     else
-      nvm use default
       tmux
     fi
   fi

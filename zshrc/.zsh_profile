@@ -38,6 +38,12 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 
+# asdf
+[ -s "/opt/asdf-vm/asdf.sh" ] && . "/opt/asdf-vm/asdf.sh"
+if type brew > /dev/null 2>&1; then
+  echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+fi
+
 # others
 export EDITOR="nvim"
 export GPG_TTY=$(tty)
