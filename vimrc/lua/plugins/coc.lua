@@ -7,7 +7,7 @@ vim.keymap.set(
   { expr = true, noremap = true }
 )
 
-vim.api.nvim_set_keymap(
+vim.keymap.set(
   'i',
   '<CR>',
   function()
