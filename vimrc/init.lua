@@ -48,6 +48,11 @@ vim.api.nvim_set_keymap('i', 'jj', '<Esc>:w<CR>', { noremap=true })
 -- search
 vim.api.nvim_set_keymap('n', 's<Esc>', ':nohlsearch<CR>', { noremap=true })
 
+-- tab
+vim.api.nvim_set_keymap('n', 'st', ':tabnew<CR>', { noremap=true })
+vim.api.nvim_set_keymap('n', 'se', 'gt', { noremap=true })
+vim.api.nvim_set_keymap('n', 'sw', 'gT', { noremap=true })
+
 -- Options
 -- encoding
 vim.opt.encoding = 'utf-8'
@@ -66,13 +71,13 @@ vim.opt.pyxversion = 3
 vim.opt.ambiwidth = 'double'
 
 -- background
-vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
-vim.cmd('highlight NonText ctermbg=NONE guibg=NONE')
-vim.cmd('highlight LineNr ctermbg=NONE guibg=NONE')
-vim.cmd('highlight Folded ctermbg=NONE guibg=NONE')
-vim.cmd('highlight EndOfBuffer ctermbg=NONE guibg=NONE')
-vim.cmd('highlight SpecialKey ctermbg=NONE guibg=NONE')
-vim.cmd('highlight NormalNC ctermbg=NONE guibg=NONE')
+-- vim.cmd('highlight Normal ctermbg=NONE guibg=NONE')
+-- vim.cmd('highlight NonText ctermbg=NONE guibg=NONE')
+-- vim.cmd('highlight LineNr ctermbg=NONE guibg=NONE')
+-- vim.cmd('highlight Folded ctermbg=NONE guibg=NONE')
+-- vim.cmd('highlight EndOfBuffer ctermbg=NONE guibg=NONE')
+-- vim.cmd('highlight SpecialKey ctermbg=NONE guibg=NONE')
+-- vim.cmd('highlight NormalNC ctermbg=NONE guibg=NONE')
 
 -- indent
 vim.opt.autoindent = true
