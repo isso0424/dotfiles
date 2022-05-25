@@ -40,9 +40,7 @@ export XMODIFIERS="@im=fcitx"
 
 # asdf
 [ -s "/opt/asdf-vm/asdf.sh" ] && . "/opt/asdf-vm/asdf.sh"
-if type brew > /dev/null 2>&1; then
-  echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
-fi
+[ -s "/usr/local/opt/asdf/libexec/asdf.sh" ] && . "/usr/local/opt/asdf/libexec/asdf.sh"
 
 # others
 export EDITOR="nvim"
