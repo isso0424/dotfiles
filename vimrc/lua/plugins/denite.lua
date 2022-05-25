@@ -13,8 +13,6 @@ vim.fn['denite#custom#option']('_', {
 
 vim.api.nvim_exec(
 [[
-autocmd FileType denite call s:denite_my_settings()
-
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
   \ denite#do_map('do_action')
@@ -51,6 +49,7 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> ..
   \ denite#do_map('move_up_path')
 endfunction
+autocmd FileType denite call s:denite_my_settings()
 ]],
 false
 )
