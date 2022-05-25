@@ -17,7 +17,7 @@ source ~/dotfiles/vimrc/lua/plugins/lualine.lua
 [[plugins]]
 repo = "airblade/vim-gitgutter"
 hook_add = '''
-source ~/dotfiles/vimrc/plugins/vim-gitgutter.vim
+source ~/dotfiles/vimrc/lua/plugins/vim-gitgutter.lua
 '''
 
 [[plugins]]
