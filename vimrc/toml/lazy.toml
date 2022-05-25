@@ -19,7 +19,7 @@ on_cmd = 'Defx'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-source ~/dotfiles/vimrc/plugins/denite.vim
+source ~/dotfiles/vimrc/lua/plugins/denite.lua
 '''
 on_cmd = "Denite"
 

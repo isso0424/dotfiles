@@ -1,3 +1,18 @@
+local win_width_percent = 0.4
+local win_height_percent = 0.4
+local width = vim.o.columns * win_width_percent
+local height = vim.o.lines * win_height_percent
+
+vim.fn['denite#custom#option']('_', {
+  split = 'floating',
+  winwidth = math.floor(width),
+  winclo = math.floor((vim.o.columns - width) / 2),
+  winheight = math.floor(height),
+  winrow = math.floor((vim.o.lines - height) / 2)
+})
+
+vim.api.nvim_exec(
+[[
 autocmd FileType denite call s:denite_my_settings()
 
 function! s:denite_my_settings() abort
@@ -36,24 +51,22 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> ..
   \ denite#do_map('move_up_path')
 endfunction
+]],
+false
+)
 
-let s:denite_win_width_percent = 0.4
-let s:denite_win_height_percent = 0.4
-
-" Change denite default options
-call denite#custom#option('default', {
-    \ 'split': 'floating',
-    \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
-    \ 'wincol': float2nr((&columns - (&columns * s:denite_win_width_percent)) / 2),
-    \ 'winheight': float2nr(&lines * s:denite_win_height_percent),
-    \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
-    \ })
-
+vim.api.nvim_exec(
+[[
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 
 function! s:denite_filter_my_settings() abort
   imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
 endfunction
+]],
+false
+)
 
-nnoremap <silent> <C-d><C-b> :Denite buffer<CR>
-nnoremap <silent> <C-d><C-g> :Denite grep<CR>
+vim.api.nvim_set_keymap('n', '<C-d>b', ':Denite buffer<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-d>g', ':DeniteCursorWord grep<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-d>f', ':Denite file/rec<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-d>t', ':Denite file/rec<CR>', { silent = true })
