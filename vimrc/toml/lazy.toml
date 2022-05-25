@@ -1,10 +1,3 @@
-# snippets関連
-[[plugins]]
-repo = 'SirVer/ultisnips'
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/ultisnip.vim
-'''
-
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''

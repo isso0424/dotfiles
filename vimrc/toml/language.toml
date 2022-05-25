@@ -24,14 +24,6 @@ on_ft = ['markdown']
 repo = 'othree/xml.vim'
 on_ft = ['xml']
 
-# HTML/CSS用
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['css', 'html', 'javascript.ejs']
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/emmet.vim
-'''
-
 # clang用
 [[plugins]]
 repo = 'justmao945/vim-clang'
