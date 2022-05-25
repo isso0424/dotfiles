@@ -33,14 +33,6 @@ on_ft = ['c']
 repo = 'Shougo/neoinclude.vim'
 on_ft = ['c']
 
-# 閉じタグ
-[[plugins]]
-repo = 'alvan/vim-closetag'
-on_ft = ['typescript']
-hook_add = '''
-source ~/dotfiles/vimrc/plugins/vim-closetag.vim
-'''
-
 # rust用
 [[plugins]]
 repo = 'rust-lang/rust.vim'
