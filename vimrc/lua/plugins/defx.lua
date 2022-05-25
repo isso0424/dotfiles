@@ -1,3 +1,16 @@
+vim.fn['defx#custom#option']('_', {
+  winwidth = 40,
+  split = 'vertical',
+  direction = 'topleft',
+  show_ignored_files = 1,
+  buffer_name = 'exlorer',
+  toggle = true,
+  resume = true,
+  columns = 'indent:git:filename:mark',
+})
+
+vim.api.nvim_exec(
+[[
 function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
    \ defx#do_action('drop')
@@ -64,5 +77,7 @@ function! s:defx_my_settings() abort
   \ defx#do_action('change_vim_cwd')
 endfunction
 autocmd FileType defx call s:defx_my_settings()
-
-nnoremap <silent> ff :<C-u> Defx <CR>
+]],
+false
+)
+vim.api.nvim_set_keymap('n', 'ff', ':<C-u> Defx <CR>', { silent = true })

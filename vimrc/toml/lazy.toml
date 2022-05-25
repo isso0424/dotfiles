@@ -8,7 +8,7 @@ source ~/dotfiles/vimrc/plugins/ultisnip.vim
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
-source ~/dotfiles/vimrc/plugins/defx.vim
+source ~/dotfiles/vimrc/lua/plugins/defx.lua
 '''
 on_cmd = 'Defx'
 
