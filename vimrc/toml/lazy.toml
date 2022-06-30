@@ -17,18 +17,6 @@ source ~/dotfiles/vimrc/lua/plugins/denite.lua
 on_cmd = "Denite"
 
 [[plugins]]
-repo = 'wakatime/vim-wakatime'
-on_i = 1
-
-[[plugins]]
-repo = 'Townk/vim-autoclose'
-on_i = 1
-
-[[plugins]]
-repo = 'honza/vim-snippets'
-on_i = 1
-
-[[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 hook_post_update = "TSUpdate"
 on_event = "VimEnter"

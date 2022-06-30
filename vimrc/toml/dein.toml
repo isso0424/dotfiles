@@ -30,3 +30,15 @@ rev = 'release'
 hook_add = '''
 source ~/dotfiles/vimrc/lua/plugins/coc.lua
 '''
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+on_i = 1
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+on_i = 1
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+on_i = 1
