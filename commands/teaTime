@@ -1,5 +1,0 @@
-#!/bin/zsh
-git fetch -p
-git checkout master
-git merge origin/master
-git branch -d $(git branch)

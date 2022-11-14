@@ -1,8 +1,0 @@
-#!/bin/zsh
-cd $1
-tmux split-window -h
-tmux select-pane -t 1
-tmux split-window -v "gh issue list; zsh"
-tmux select-pane -t 2
-tmux select-pane -t 0
-lazygit

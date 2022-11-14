@@ -1,2 +1,0 @@
-#!/bin/sh
-discord --a=--proxy-server=$1
