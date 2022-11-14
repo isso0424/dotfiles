@@ -1,20 +1,7 @@
-vim.keymap.set(
-  'i',
-  '<TAB>',
-  function()
-    return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
-  end,
-  { expr = true, noremap = true }
-)
-
-vim.keymap.set(
-  'i',
-  '<CR>',
-  function()
-    return vim.fn.pumvisible() == 1 and "<C-y>" or "<CR>"
-  end,
-  { noremap = true, expr = true }
-)
+vim.keymap.set('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
+vim.keymap.set('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
+vim.keymap.set('i', '<CR>', [[pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], { expr = true })
+vim.keymap.set('i', '<S-space>', [[coc#refresh()]], { expr = true, silent = true })
 
 vim.api.nvim_set_keymap('n', 'g[', '<Plug>(coc-diagnostic-prev)', { silent = true })
 vim.api.nvim_set_keymap('n', 'g]', '<Plug>(coc-diagnostic-next)', { silent = true })
