@@ -72,13 +72,6 @@ source ~/dotfiles/vimrc/lua/plugins/lsp/mason.lua
 '''
 
 [[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-hook_post_update = "TSUpdate"
-hook_post_source = '''
-source ~/dotfiles/vimrc/lua/plugins/treesitter.lua
-'''
-
-[[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
@@ -86,4 +79,18 @@ repo = 'nvim-telescope/telescope.nvim'
 rev = '0.1.x'
 hook_add = '''
 source ~/dotfiles/vimrc/lua/plugins/telescope/telescope.lua
+'''
+
+[[plugins]]
+repo = 'windwp/nvim-autopairs'
+hook_add = '''
+lua << EOF
+require("nvim-autopairs").setup {}
+EOF
+'''
+
+[[plugins]]
+repo = 'sidebar-nvim/sidebar.nvim'
+hook_add = '''
+source ~/dotfiles/vimrc/lua/plugins/sidebar.lua
 '''
