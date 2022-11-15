@@ -80,4 +80,4 @@ autocmd FileType defx call s:defx_my_settings()
 ]],
 false
 )
-vim.api.nvim_set_keymap('n', 'ff', ':<C-u> Defx <CR>', { silent = true })
+vim.api.nvim_set_keymap('n', 'fl', ':<C-u> Defx <CR>', { silent = true })

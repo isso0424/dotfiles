@@ -3,18 +3,9 @@ repo = 'Shougo/defx.nvim'
 hook_add = '''
 source ~/dotfiles/vimrc/lua/plugins/defx.lua
 '''
-on_cmd = 'Defx'
 
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
-on_cmd = 'Defx'
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-source ~/dotfiles/vimrc/lua/plugins/denite.lua
-'''
-on_cmd = "Denite"
 
 [[plugins]]
 repo = 'wakatime/vim-wakatime'

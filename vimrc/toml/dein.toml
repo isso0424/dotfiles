@@ -77,3 +77,13 @@ hook_post_update = "TSUpdate"
 hook_post_source = '''
 source ~/dotfiles/vimrc/lua/plugins/treesitter.lua
 '''
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+rev = '0.1.x'
+hook_add = '''
+source ~/dotfiles/vimrc/lua/plugins/telescope/telescope.lua
+'''
