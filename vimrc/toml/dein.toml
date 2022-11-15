@@ -25,13 +25,6 @@ repo = 'luochen1990/rainbow'
 hook_add = 'let g:rainbow_active = 1'
 
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-rev = 'release'
-hook_add = '''
-source ~/dotfiles/vimrc/lua/plugins/coc.lua
-'''
-
-[[plugins]]
 repo = 'wakatime/vim-wakatime'
 on_i = 1
 
@@ -42,3 +35,41 @@ on_i = 1
 [[plugins]]
 repo = 'honza/vim-snippets'
 on_i = 1
+
+# for vim-lsp
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+hook_add = '''
+source ~/dotfiles/vimrc/lua/plugins/lsp/general.lua
+'''
+
+[[plugins]]
+repo =  'hrsh7th/cmp-nvim-lsp'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-buffer'
+
+[[plugins]]
+repo =  'hrsh7th/cmp-path'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-cmdline'
+
+[[plugins]]
+repo = 'hrsh7th/nvim-cmp'
+hook_add = '''
+source ~/dotfiles/vimrc/lua/plugins/completion/nvim-cmp.lua
+'''
+
+[[plugins]]
+repo = 'hrsh7th/cmp-vsnip'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+
+[[plugins]]
+repo = 'onsails/lspkind.nvim'
+hook_add = '''
+source ~/dotfiles/vimrc/lua/plugins/completion/lspkind.lua
+'''
