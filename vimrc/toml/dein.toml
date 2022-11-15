@@ -24,18 +24,6 @@ source ~/dotfiles/vimrc/lua/plugins/vim-gitgutter.lua
 repo = 'luochen1990/rainbow'
 hook_add = 'let g:rainbow_active = 1'
 
-[[plugins]]
-repo = 'wakatime/vim-wakatime'
-on_i = 1
-
-[[plugins]]
-repo = 'Townk/vim-autoclose'
-on_i = 1
-
-[[plugins]]
-repo = 'honza/vim-snippets'
-on_i = 1
-
 # for vim-lsp
 
 [[plugins]]
@@ -70,6 +58,22 @@ repo = 'hrsh7th/vim-vsnip'
 
 [[plugins]]
 repo = 'onsails/lspkind.nvim'
-hook_add = '''
+hook_post_source = '''
 source ~/dotfiles/vimrc/lua/plugins/completion/lspkind.lua
+'''
+
+[[plugins]]
+repo = 'williamboman/mason.nvim'
+
+[[plugins]]
+repo = 'williamboman/mason-lspconfig.nvim'
+hook_add = '''
+source ~/dotfiles/vimrc/lua/plugins/lsp/mason.lua
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_post_update = "TSUpdate"
+hook_post_source = '''
+source ~/dotfiles/vimrc/lua/plugins/treesitter.lua
 '''
