@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-require('lspconfig').sumneko_lua.setup {
+require'lspconfig'.sumneko_lua.setup {
   settings = {
     Lua = {
       runtime = {
@@ -55,3 +55,19 @@ require('lspconfig').sumneko_lua.setup {
     },
   },
 }
+
+require'lspconfig'.clangd.setup {}
+require'lspconfig'.dockerls.setup {}
+require'lspconfig'.elmls.setup {}
+require'lspconfig'.gopls.setup {}
+require'lspconfig'.golangci_lint_ls.setup {}
+require'lspconfig'.graphql.setup {}
+require'lspconfig'.jsonls.setup {}
+require'lspconfig'.marksman.setup {}
+require'lspconfig'.pyright.setup {}
+require'lspconfig'.rust_analyzer.setup {}
+require'lspconfig'.stylelint_lsp.setup {}
+require'lspconfig'.taplo.setup {}
+require'lspconfig'.tailwindcss.setup {}
+require'lspconfig'.tsserver.setup {}
+require'lspconfig'.yamlls.setup {}
