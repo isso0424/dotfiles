@@ -72,9 +72,9 @@ require("neo-tree").setup {
       nowait = true,
     },
     mappings = {
-      ["<space>"] = { 
-          "toggle_node", 
-          nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
+      ["<space>"] = {
+        "toggle_node",
+        nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
       },
       ["l"] = "open",
       ["<cr>"] = "open",
@@ -82,7 +82,10 @@ require("neo-tree").setup {
       ["P"] = { "toggle_preview", config = { use_float = true } },
       ["S"] = "open_split",
       -- ["S"] = "split_with_window_picker",
-      -- ["s"] = "vsplit_with_window_picker",
+      ["s"] = {
+        "open_vsplit",
+        nowait = false
+      },
       ["t"] = "open_tabnew",
       -- ["<cr>"] = "open_drop",
       -- ["t"] = "open_tab_drop",
