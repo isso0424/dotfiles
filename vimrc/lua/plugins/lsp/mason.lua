@@ -17,6 +17,7 @@ require("mason-lspconfig").setup({
     'taplo',
     'tailwindcss',
     'tsserver',
-    'yamlls'
+    'yamlls',
+    'phpactor'
   },
 })
