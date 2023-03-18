@@ -106,3 +106,9 @@ repo = 'nvim-neo-tree/neo-tree.nvim'
 hook_add = '''
 source ~/dotfiles/vimrc/lua/plugins/neo-tree.lua
 '''
+
+[[plugins]]
+repo = 'folke/todo-comments.nvim'
+hook_add = '''
+source ~/dotfiles/vimrc/lua/plugins/todo-comments.lua
+'''
