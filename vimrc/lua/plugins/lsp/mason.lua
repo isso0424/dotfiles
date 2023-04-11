@@ -10,7 +10,6 @@ require("mason-lspconfig").setup({
     'graphql',
     'jsonls',
     'marksman',
-    'lua_ls',
     'pyright',
     'rust_analyzer',
     'stylelint_lsp',
