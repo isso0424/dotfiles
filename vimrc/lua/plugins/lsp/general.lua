@@ -56,18 +56,21 @@ require'lspconfig'.lua_ls.setup {
   },
 }
 
-require'lspconfig'.clangd.setup {}
-require'lspconfig'.dockerls.setup {}
-require'lspconfig'.elmls.setup {}
-require'lspconfig'.gopls.setup {}
-require'lspconfig'.golangci_lint_ls.setup {}
-require'lspconfig'.graphql.setup {}
-require'lspconfig'.jsonls.setup {}
-require'lspconfig'.marksman.setup {}
-require'lspconfig'.pyright.setup {}
-require'lspconfig'.rust_analyzer.setup {}
-require'lspconfig'.stylelint_lsp.setup {}
-require'lspconfig'.taplo.setup {}
-require'lspconfig'.tailwindcss.setup {}
-require'lspconfig'.tsserver.setup {}
-require'lspconfig'.yamlls.setup {}
+local config = {}
+
+config.on_attach = on_attach
+
+require'lspconfig'.clangd.setup(config)
+require'lspconfig'.dockerls.setup(config)
+require'lspconfig'.elmls.setup (config)
+require'lspconfig'.gopls.setup (config)
+require'lspconfig'.golangci_lint_ls.setup (config)
+require'lspconfig'.graphql.setup (config)
+require'lspconfig'.jsonls.setup (config)
+require'lspconfig'.marksman.setup (config)
+require'lspconfig'.pyright.setup (config)
+require'lspconfig'.rust_analyzer.setup (config)
+require'lspconfig'.taplo.setup (config)
+require'lspconfig'.tailwindcss.setup (config)
+require'lspconfig'.tsserver.setup (config)
+require'lspconfig'.yamlls.setup (config)
