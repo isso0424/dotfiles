@@ -17,6 +17,7 @@ require("mason-lspconfig").setup({
     'tailwindcss',
     'tsserver',
     'yamlls',
-    'phpactor'
+    'phpactor',
+    'cssls'
   },
 })
