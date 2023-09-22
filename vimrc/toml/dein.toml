@@ -72,6 +72,12 @@ source ~/dotfiles/vimrc/lua/plugins/lsp/mason.lua
 '''
 
 [[plugins]]
+repo = 'mhartington/formatter.nvim'
+hook_add = '''
+source ~/dotfiles/vimrc/lua/plugins/formatter.lua
+'''
+
+[[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
