@@ -1,0 +1,55 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+}
+
+order += "wireless _first_"
+order += "path_exists VPN"
+order += "battery all"
+order += "memory"
+order += "tztime local"
+order += "volume master"
+
+wireless _first_ {
+        format_up = "W: (%quality at %essid %bitrate) %ip"
+        format_down = "W: down"
+}
+
+path_exists VPN {
+        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+        path = "/proc/sys/net/ipv4/conf/tun0"
+}
+
+battery all {
+        format = "%status %percentage %remaining"
+        status_chr = "↑CHR"
+        status_bat = "↓BAR"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+}
+
+memory {
+        format = "%used / %total"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
