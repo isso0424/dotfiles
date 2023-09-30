@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-file_name = "~/dotfiles/tmuxconf/.load_powerline.sh"
+file_name="$HOME/dotfiles/tmuxconf/.load_powerline.sh"
 if [ -e $file_name ]; then
   rm $file_name
 fi
