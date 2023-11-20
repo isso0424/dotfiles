@@ -6,6 +6,21 @@ repo = 'Shougo/dein.vim'
 repo = 'marko-cerovac/material.nvim'
 
 [[plugins]]
+repo = 'challenger-deep-theme/vim'
+
+[[plugins]]
+repo = 'ray-x/aurora'
+
+[[plugins]]
+repo = 'olivercederborg/poimandres.nvim'
+hook_add = '''
+source ~/dotfiles/vimrc/lua/plugins/poimandres.lua
+'''
+
+[[plugins]]
+repo = 'mhartington/oceanic-next'
+
+[[plugins]]
 repo = 'simeji/winresizer'
 
 [[plugins]]
