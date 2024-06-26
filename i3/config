@@ -55,7 +55,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Ricty 12'
+bindsym $mod+d exec --no-startup-id "rofi -font 'Ricty 12' -combi-modi window,drun,ssh -show combi -theme rounded-blue-dark"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -171,26 +171,27 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym Print exec --no-startup-id flameshot screen
-bindsym Shift+Print exec --no-startup-id flameshot gui
+bindsym $mod+g exec --no-startup-id flameshot screen
+bindsym $mod+Shift+g exec --no-startup-id flameshot gui
 
-gaps inner 20
+gaps inner 5
 
 exec --no-startup-id np-applet
 
 exec --no-startup-id ~/.fehbg
 
-exec --no-startup-id light-locker
+# exec --no-startup-id light-locker
 exec --no-startup-id fcitx5
 
-set $Locker i3lock && sleep 1
+# set $Locker i3lock && sleep 1
+exec --no-startup-id betterlockscreen -u ~/Pictures/wallpaper/lock.png
+set $Locker betterlockscreen -l && sleep 1
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id light-locker-command -l, mode "default"
+    bindsym l exec --no-startup-id $SetLockBG && $Locker -l, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id betterlockscreen -s, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -199,15 +200,22 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+F10 mode "$mode_system"
+bindsym $mod+Control+l mode "$mode_system"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
 bar {
-        font pango:Ricty 14
-        height 20
-        status_command i3status
+        font pango:Ricty 12
+        separator_symbol "|"
+        padding 1
+        status_command i3blocks
+        mode dock
+        tray_output none
+        colors {
+          background #2A2A2A
+          statusline #E6E6E6
+        }
 }
 
 # disable title bar
